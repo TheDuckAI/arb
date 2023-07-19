@@ -19,6 +19,12 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/api/loadData.js", "src/pages/api/lawProblem.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/pages/api/loadData.js",
+    "src/pages/api/lawProblem.js"
+  ],
   "exclude": ["node_modules"]
 }

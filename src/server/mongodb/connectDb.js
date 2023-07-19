@@ -1,12 +1,11 @@
 import mongoose from "mongoose";
-import dotenv from 'dotenv';
+import dotenv from "dotenv";
 
 dotenv.config();
 
-
 const connectDb = async () => {
   const MONGO_URI = process.env.MONGO_URI;
-  
+
   if (!MONGO_URI) {
     return {
       success: false,

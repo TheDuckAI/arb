@@ -1,4 +1,4 @@
-import { getRandomScienceImagesProblem } from "../../server/mongodb/actions/mcatProblem"
+import { getRandomScienceImagesProblem } from "../../server/mongodb/actions/mcatProblem";
 import requestWrapper from "../../server/utils/middleware";
 
 async function handler(req, res) {
