@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from './Home.module.css';
-
+import MathJaxComponent from "./Components/Mathjax";
 
 interface LawProblem {
     "Problem Statement": string;
@@ -107,7 +107,8 @@ export default function Home() {
             <h1>{problemType}</h1>
             <div className={styles.problem}>
             <div className={styles.problemStatement}>
-                {problemStatement}
+                
+                {<MathJaxComponent latex={problemStatement} />}
             </div>
             <br/>
             <br/>
