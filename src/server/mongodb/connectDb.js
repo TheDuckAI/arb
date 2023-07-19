@@ -1,10 +1,22 @@
 import mongoose from "mongoose";
-import urls from "../../server/utils/urls";
+import dotenv from 'dotenv';
+
+dotenv.config();
+
 
 const connectDb = async () => {
+  const MONGO_URI = process.env.MONGO_URI;
+  
+  if (!MONGO_URI) {
+    return {
+      success: false,
+      message: "MongoDB connection string is not set",
+    };
+  }
+
   if (!global.cache) {
     try {
-      global.cache = await mongoose.connect("mongodb+srv://duckai:theduckai2023@cluster0.hwpbkrp.mongodb.net/arb_problems");
+      global.cache = await mongoose.connect(MONGO_URI);
       return { success: true };
     } catch (error) {
       console.log(error);
