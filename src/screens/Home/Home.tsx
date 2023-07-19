@@ -108,12 +108,12 @@ export default function Home() {
             <div className={styles.problem}>
             <div className={styles.problemStatement}>
                 
-                {<MathJaxComponent latex={problemStatement} />}
+                {<MathJaxComponent problemStatement={problemStatement} />}
             </div>
             <br/>
             <br/>
             <div><strong>Answer Candidates:</strong>
-            {answerCandidates && answerCandidates.map((answer, index) => {
+            {!isNumericalProblem(problem) && answerCandidates && answerCandidates.map((answer, index) => {
                 let prefix;
                 switch (index) {
                     case 0:
