@@ -42,3 +42,4 @@ const numericalProblemSchema = new mongoose.Schema({
 
 export const mathNumericalModel = mongoose.models.mathNumericalProblem || mongoose.model('mathNumericalProblem', numericalProblemSchema, 'math_numerical');
 export const physicsNumericalModel = mongoose.models.physicsNumericalProblem || mongoose.model('physicsNumericalProblem', numericalProblemSchema, 'physics_numerical');
+export const physicsImgModel = mongoose.models.physicsImgProblem || mongoose.model('physicsImgProblem', numericalProblemSchema, 'physics_numerical_images');

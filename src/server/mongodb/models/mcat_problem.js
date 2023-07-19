@@ -52,4 +52,5 @@ const mcatSchema = new mongoose.Schema({
 
 
 export const mcatReadingValModel = mongoose.models.mcatReadingVal || mongoose.model('mcatReadingVal', mcatSchema, 'mcat_reading_val');
+export const mcatScienceImgModel = mongoose.models.mcatScienceImg || mongoose.model('mcatScienceImg', mcatSchema, 'mcat_science_images_val');
 export const mcatScienceValModel = mongoose.models.mcatScienceVal || mongoose.model('mcatScienceVal', mcatSchema, 'mcat_science_val');
