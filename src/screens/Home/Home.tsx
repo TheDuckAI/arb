@@ -42,6 +42,7 @@ export default function Home() {
   const [randomEndpoint, setRandomEndpoint] = useState("");
   const [problemType, setProblemType] = useState("");
   const [problemStatement, setProblemStatement] = useState<string>("");
+  const [finalAnswer, setFinalAnswer] = useState<string>("");
   const [answerCandidates, setAnswerCandidates] = useState<string[]>([]);
 
   const endpoints = {
@@ -59,13 +60,8 @@ export default function Home() {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        console.log(
-          "Problem Statement: ",
-          data["randomProblem"]["Problem Statement"] ||
-            data["randomProblem"].Problem_Statement
-        );
-
         setProblem(data["randomProblem"]);
+
       });
   };
 
@@ -78,6 +74,8 @@ export default function Home() {
         setProblemStatement(problem["Problem Statement"]);
         setAnswerCandidates(problem["Answer Candidates"]);
       }
+      setFinalAnswer(problem["Final Answer"]);
+
     }
   }, [problem]);
 
@@ -128,7 +126,7 @@ export default function Home() {
         <br />
         <br />
         <div>
-          <strong>Answer Candidates:</strong>
+         {!isNumericalProblem(problem) && <strong>Answer Candidates:</strong>}
           {!isNumericalProblem(problem) &&
             answerCandidates &&
             answerCandidates.map((answer, index) => {
@@ -156,7 +154,7 @@ export default function Home() {
         <br />
         <br />
         <div>
-          <strong>Final Answer:</strong> {problem["Final Answer"]}
+          <strong>Final Answer:</strong> {finalAnswer}
         </div>
       </div>
     </div>
