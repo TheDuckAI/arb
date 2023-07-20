@@ -1,7 +1,7 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
-import connectDb from '../mongodb/connectDb';
+import type { NextApiRequest, NextApiResponse } from "next";
+import connectDb from "../mongodb/connectDb";
 
-type RequestMethod = 'GET' | 'POST' | 'PUT' | 'DELETE';
+type RequestMethod = "GET" | "POST" | "PUT" | "DELETE";
 
 export default function requestWrapper(
   handler: (req: NextApiRequest, res: NextApiResponse) => void | Promise<void>,
@@ -11,18 +11,18 @@ export default function requestWrapper(
     if (req.method !== method) {
       return res.status(400).json({
         success: false,
-        message: 'Request Failure: Invalid method for request',
+        message: "Request Failure: Invalid method for request",
       });
     }
 
-    if (method !== 'GET') {
+    if (method !== "GET") {
       try {
         req.body = JSON.parse(req.body);
       } catch (error) {
         console.log(error);
         return res.status(400).json({
           success: false,
-          message: 'Invalid request body',
+          message: "Invalid request body",
         });
       }
     }
@@ -36,7 +36,7 @@ export default function requestWrapper(
       console.error(error);
       return res.status(500).json({
         success: false,
-        message: 'Server Error',
+        message: "Server Error",
       });
     }
 

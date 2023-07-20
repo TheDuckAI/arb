@@ -1,4 +1,4 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
+import type { NextApiRequest, NextApiResponse } from "next";
 import { getRandomMathProblem } from "../../server/mongodb/actions/numericalProblem";
 import requestWrapper from "../../server/utils/middleware";
 

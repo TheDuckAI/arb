@@ -1,4 +1,7 @@
-const sendRequest = async (route: string, method: "GET" | "POST" | "PUT" | "DELETE"): Promise<any> => {
+const sendRequest = async (
+  route: string,
+  method: "GET" | "POST" | "PUT" | "DELETE"
+): Promise<any> => {
   let result: Response;
   if (method === "GET") {
     result = await fetch(route);

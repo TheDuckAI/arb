@@ -1,4 +1,4 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
+import type { NextApiRequest, NextApiResponse } from "next";
 import { getRandomReadingProblem } from "../../server/mongodb/actions/mcatProblem";
 import requestWrapper from "../../server/utils/middleware";
 

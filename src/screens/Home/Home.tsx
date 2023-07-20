@@ -61,7 +61,6 @@ export default function Home() {
       .then((data) => {
         console.log(data);
         setProblem(data["randomProblem"]);
-
       });
   };
 
@@ -75,7 +74,6 @@ export default function Home() {
         setAnswerCandidates(problem["Answer Candidates"]);
       }
       setFinalAnswer(problem["Final Answer"]);
-
     }
   }, [problem]);
 
@@ -126,7 +124,7 @@ export default function Home() {
         <br />
         <br />
         <div>
-         {!isNumericalProblem(problem) && <strong>Answer Candidates:</strong>}
+          {!isNumericalProblem(problem) && <strong>Answer Candidates:</strong>}
           {!isNumericalProblem(problem) &&
             answerCandidates &&
             answerCandidates.map((answer, index) => {
