@@ -1,35 +1,27 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 interface MathJaxProps {
   problemStatement: string;
 }
 
 const MathJaxComponent: React.FC<MathJaxProps> = ({ problemStatement }) => {
-  const mathEl = useRef<HTMLSpanElement | null>(null);
   const [parsedContent, setParsedContent] = useState<string>("");
 
   useEffect(() => {
-    let content = problemStatement;
-
-    const regex = /\$(.*?)\$|\\(iint|int|lim|section)\{(.*?)\}/g;
+    const regex = /\$(.*?)\$|\\\((.*?)\\\)|\\\[(.*?)\\\]/g;
     let result;
-    let lastIndex = 0;
 
-    let parsedString = "";
+    let parsedString = problemStatement;
 
     while ((result = regex.exec(problemStatement)) !== null) {
-      parsedString += problemStatement.slice(lastIndex, result.index);
-
-      if (result[1]) {
-        parsedString += `\\(${result[1]}\\)`;
-      } else {
-        parsedString += result[0];
+      if (result[1]) {  
+        parsedString = parsedString.replace(result[0], `\\(${result[1]}\\)`);
+      } else if (result[2]) {  
+        // No need to modify as it's already in desired format
+      } else if (result[3]) {  
+        // No need to modify as it's already in desired format
       }
-
-      lastIndex = result.index + result[0].length;
     }
-
-    parsedString += problemStatement.slice(lastIndex);
 
     setParsedContent(parsedString);
   }, [problemStatement]);
@@ -47,7 +39,7 @@ const MathJaxComponent: React.FC<MathJaxProps> = ({ problemStatement }) => {
   }, [parsedContent]);
 
   return (
-    <span ref={mathEl} dangerouslySetInnerHTML={{ __html: parsedContent }} />
+    <span dangerouslySetInnerHTML={{ __html: parsedContent }} />
   );
 };
 

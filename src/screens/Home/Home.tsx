@@ -43,6 +43,7 @@ export default function Home() {
   const [problemType, setProblemType] = useState("");
   const [problemStatement, setProblemStatement] = useState<string>("");
   const [finalAnswer, setFinalAnswer] = useState<string>("");
+  const [solution, setSolution] = useState<string>("");
   const [answerCandidates, setAnswerCandidates] = useState<string[]>([]);
 
   const endpoints = {
@@ -67,6 +68,7 @@ export default function Home() {
     if (problem) {
       if (isNumericalProblem(problem)) {
         setProblemStatement(problem.Problem_Statement);
+        setSolution(problem["Solution"]);
         setFinalAnswer(problem["Final Answer"]);
       } else {
         setProblemStatement(problem["Problem Statement"]);
@@ -154,6 +156,13 @@ export default function Home() {
                   <Text key={index}>{`${prefix}. ${answer}`}</Text>
                 );
               })}
+          </Box>
+        )}
+        {isNumericalProblem(problem) && (
+          <Box mt={5}>
+
+              <Text fontWeight="bold" mb={2}>Solution:</Text>
+              {solution && <MathJaxComponent problemStatement={solution} />}
           </Box>
         )}
 
