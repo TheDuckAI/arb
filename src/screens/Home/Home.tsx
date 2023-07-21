@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styles from "./Home.module.css";
+import { Box, Button, Flex, Heading, Select, Text } from "@chakra-ui/react";
 import MathJaxComponent from "./Components/Mathjax";
 
 interface LawProblem {
@@ -109,55 +109,59 @@ export default function Home() {
   console.log("Final Answer:", finalAnswer);
 
   return (
-    <div className={styles.container}>
-      <h1>Select Problem Type</h1>
-      <select value={problemType} onChange={handleProblemTypeChange}>
+    <Flex direction="column" align="center" minHeight="100vh" p={2}>
+      <Heading mb={5}>Select Problem Type</Heading>
+      <Select value={problemType} onChange={handleProblemTypeChange} mb={4}>
         {Object.keys(endpoints).map((problemType, index) => (
           <option key={index} value={problemType}>
             {problemType}
           </option>
         ))}
-      </select>
+      </Select>
+      
+      <Button mt={2} mb={5} onClick={() => fetchProblem(randomEndpoint)}>
+        Fetch New Problem
+      </Button>
 
-      <h1>{problemType}</h1>
-      <div className={styles.problem}>
-        <div className={styles.problemStatement}>
-          {<MathJaxComponent problemStatement={problemStatement} />}
-        </div>
-        <br />
-        <br />
-        <div>
-          {!isNumericalProblem(problem) && <strong>Answer Candidates:</strong>}
-          {!isNumericalProblem(problem) &&
-            answerCandidates &&
-            answerCandidates.map((answer, index) => {
-              let prefix;
-              switch (index) {
-                case 0:
-                  prefix = "A";
-                  break;
-                case 1:
-                  prefix = "B";
-                  break;
-                case 2:
-                  prefix = "C";
-                  break;
-                case 3:
-                  prefix = "D";
-                  break;
-                default:
-                  prefix = String.fromCharCode(index + 65);
-              }
-              return <div key={index}>{`${prefix}. ${answer}`}</div>;
-            })}
-        </div>
+      <Box w="full" borderWidth="1px" borderRadius="md" p={4} mb={5}>
+        <Box fontWeight="bold" mb={4}>
+          <MathJaxComponent problemStatement={problemStatement} />
+        </Box>
 
-        <br />
-        <br />
-        <div>
-          <strong>Final Answer:</strong> {finalAnswer}
-        </div>
-      </div>
-    </div>
+        {!isNumericalProblem(problem) && (
+          <Box mt={5}>
+            <Text fontWeight="bold" mb={2}>Answer Candidates:</Text>
+            {answerCandidates &&
+              answerCandidates.map((answer, index) => {
+                let prefix;
+                switch (index) {
+                  case 0:
+                    prefix = "A";
+                    break;
+                  case 1:
+                    prefix = "B";
+                    break;
+                  case 2:
+                    prefix = "C";
+                    break;
+                  case 3:
+                    prefix = "D";
+                    break;
+                  default:
+                    prefix = String.fromCharCode(index + 65);
+                }
+                return (
+                  <Text key={index}>{`${prefix}. ${answer}`}</Text>
+                );
+              })}
+          </Box>
+        )}
+
+        <Box mt={5}>
+          <Text fontWeight="bold" mb={2}>Final Answer:</Text>
+          <MathJaxComponent problemStatement={finalAnswer} />
+        </Box>
+      </Box>
+    </Flex>
   );
 }

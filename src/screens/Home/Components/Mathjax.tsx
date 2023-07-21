@@ -11,7 +11,7 @@ const MathJaxComponent: React.FC<MathJaxProps> = ({ problemStatement }) => {
   useEffect(() => {
     let content = problemStatement;
 
-    const regex = /\$(.*?)\$|\\(iint|int|lim)\{(.*?)\}/g;
+    const regex = /\$(.*?)\$|\\(iint|int|lim|section)\{(.*?)\}/g;
     let result;
     let lastIndex = 0;
 
