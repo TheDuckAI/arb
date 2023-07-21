@@ -35,6 +35,12 @@ function isNumericalProblem(
   return (problem as numericalProblem).Problem_Statement !== undefined;
 }
 
+function isLawProblem(
+  problem: LawProblem | numericalProblem
+): problem is LawProblem {
+  return (problem as LawProblem).Solution == "";
+}
+
 export default function Home() {
   const [problem, setProblem] = useState<LawProblem | numericalProblem | null>(
     null
@@ -72,6 +78,7 @@ export default function Home() {
         setFinalAnswer(problem["Final Answer"]);
       } else {
         setProblemStatement(problem["Problem Statement"]);
+        setSolution(problem["Solution"]);
         setAnswerCandidates(problem["Answer Candidates"]);
         setFinalAnswer(problem["Final Answer"]);
       }
@@ -120,7 +127,7 @@ export default function Home() {
           </option>
         ))}
       </Select>
-      
+
       <Button mt={2} mb={5} onClick={() => fetchProblem(randomEndpoint)}>
         Fetch New Problem
       </Button>
@@ -131,43 +138,35 @@ export default function Home() {
         </Box>
 
         {!isNumericalProblem(problem) && (
-          <Box mt={5}>
-            <Text fontWeight="bold" mb={2}>Answer Candidates:</Text>
+          <Box mt={5} key={`${problemType}-${Date.now()}`}>
+            <Text fontWeight="bold" mb={2}>
+              Answer Candidates:
+            </Text>
             {answerCandidates &&
               answerCandidates.map((answer, index) => {
-                let prefix;
-                switch (index) {
-                  case 0:
-                    prefix = "A";
-                    break;
-                  case 1:
-                    prefix = "B";
-                    break;
-                  case 2:
-                    prefix = "C";
-                    break;
-                  case 3:
-                    prefix = "D";
-                    break;
-                  default:
-                    prefix = String.fromCharCode(index + 65);
-                }
+                let prefix = String.fromCharCode(index + 65);
                 return (
-                  <Text key={index}>{`${prefix}. ${answer}`}</Text>
+                  <Text key={index}>
+                    {`${prefix}. `}
+                    <MathJaxComponent problemStatement={answer} />
+                  </Text>
                 );
               })}
           </Box>
         )}
-        {isNumericalProblem(problem) && (
+        {!isLawProblem(problem) && (
           <Box mt={5}>
-
-              <Text fontWeight="bold" mb={2}>Solution:</Text>
-              {solution && <MathJaxComponent problemStatement={solution} />}
+            <Text fontWeight="bold" mb={2}>
+              Solution:
+            </Text>
+            {solution && <MathJaxComponent problemStatement={solution} />}
           </Box>
         )}
 
         <Box mt={5}>
-          <Text fontWeight="bold" mb={2}>Final Answer:</Text>
+          <Text fontWeight="bold" mb={2}>
+            Final Answer:
+          </Text>
           <MathJaxComponent problemStatement={finalAnswer} />
         </Box>
       </Box>

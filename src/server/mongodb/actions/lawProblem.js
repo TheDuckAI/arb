@@ -9,7 +9,6 @@ async function getRandomLawProblem() {
   return randomDocument[0];
 }
 
-
 async function getProblemsByTopic(topic) {
   return lawProblem.find({ topic });
 }

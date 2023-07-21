@@ -14,11 +14,11 @@ const MathJaxComponent: React.FC<MathJaxProps> = ({ problemStatement }) => {
     let parsedString = problemStatement;
 
     while ((result = regex.exec(problemStatement)) !== null) {
-      if (result[1]) {  
+      if (result[1]) {
         parsedString = parsedString.replace(result[0], `\\(${result[1]}\\)`);
-      } else if (result[2]) {  
+      } else if (result[2]) {
         // No need to modify as it's already in desired format
-      } else if (result[3]) {  
+      } else if (result[3]) {
         // No need to modify as it's already in desired format
       }
     }
@@ -38,9 +38,7 @@ const MathJaxComponent: React.FC<MathJaxProps> = ({ problemStatement }) => {
     }
   }, [parsedContent]);
 
-  return (
-    <span dangerouslySetInnerHTML={{ __html: parsedContent }} />
-  );
+  return <span dangerouslySetInnerHTML={{ __html: parsedContent }} />;
 };
 
 export default MathJaxComponent;
