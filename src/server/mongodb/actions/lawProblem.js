@@ -5,10 +5,10 @@ async function getLawProblemById(_id) {
 }
 
 async function getRandomLawProblem() {
-  const count = await lawProblem.countDocuments();
-  const random = Math.floor(Math.random() * count);
-  return lawProblem.findOne().skip(random);
+  const randomDocument = await lawProblem.aggregate([{ $sample: { size: 1 } }]);
+  return randomDocument[0];
 }
+
 
 async function getProblemsByTopic(topic) {
   return lawProblem.find({ topic });

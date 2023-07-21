@@ -5,21 +5,18 @@ import {
 } from "../models/mcat_problem";
 
 async function getRandomReadingProblem() {
-  const count = await mcatReadingValModel.countDocuments();
-  const random = Math.floor(Math.random() * count);
-  return mcatReadingValModel.findOne().skip(random);
+  const randomDocument = await mcatReadingValModel.aggregate([{ $sample: { size: 1 } }]);
+  return randomDocument[0];
 }
 
 async function getRandomScienceProblem() {
-  const count = await mcatScienceValModel.countDocuments();
-  const random = Math.floor(Math.random() * count);
-  return mcatScienceValModel.findOne().skip(random);
+  const randomDocument = await mcatScienceValModel.aggregate([{ $sample: { size: 1 } }]);
+  return randomDocument[0];
 }
 
 async function getRandomScienceImagesProblem() {
-  const count = await mcatScienceImgModel.countDocuments();
-  const random = Math.floor(Math.random() * count);
-  return mcatScienceImgModel.findOne().skip(random);
+  const randomDocument = await mcatScienceImgModel.aggregate([{ $sample: { size: 1 } }]);
+  return randomDocument[0];
 }
 
 export {
