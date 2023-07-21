@@ -1,7 +1,3 @@
-const Index = () => {
-  return <></>;
-};
+import Arb from "../screens/ARB";
 
-Index.title = "ARB Problems Interface";
-
-export default Index;
+export default Arb;

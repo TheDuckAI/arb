@@ -63,17 +63,16 @@ export default function Home() {
         setProblem(data["randomProblem"]);
       });
   };
-
-  console.log("Problem Statement:", problemStatement);
   useEffect(() => {
     if (problem) {
       if (isNumericalProblem(problem)) {
         setProblemStatement(problem.Problem_Statement);
+        setFinalAnswer(problem["Final Answer"]);
       } else {
         setProblemStatement(problem["Problem Statement"]);
         setAnswerCandidates(problem["Answer Candidates"]);
+        setFinalAnswer(problem["Final Answer"]);
       }
-      setFinalAnswer(problem["Final Answer"]);
     }
   }, [problem]);
 
@@ -104,6 +103,10 @@ export default function Home() {
   if (!problem) {
     return <div>Loading...</div>;
   }
+
+  console.log("Problem Statement:", problemStatement);
+
+  console.log("Final Answer:", finalAnswer);
 
   return (
     <div className={styles.container}>
