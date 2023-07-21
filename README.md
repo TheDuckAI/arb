@@ -7,4 +7,5 @@
 
 <p align="center">
     <img src="https://img.shields.io/github/checks-status/TheDuckAI/arb/main?style=flat-square">
+    <img src="https://img.shields.io/badge/License-GPLv3-blue.svg">
 </p>
