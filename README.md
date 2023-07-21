@@ -6,6 +6,5 @@
 </h1>
 
 <p align="center">
-    <img src="https://img.shields.io/github/checks-status/TheDuckAI/arb-web-interface/main?style=flat-square">
-    <img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square">
+    <img src="https://img.shields.io/github/checks-status/TheDuckAI/arb/main?style=flat-square">
 </p>
