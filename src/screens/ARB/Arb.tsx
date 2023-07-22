@@ -1,5 +1,4 @@
 import React from "react";
-import { redirect } from "next/navigation";
 import {
   Box,
   Flex,
@@ -179,8 +178,6 @@ const Arb: React.FC = () => {
         </Container>
       </Box>
 
-      {/* ... additional sections ... */}
-      {/* Footer */}
       <Flex
         as="footer"
         align="center"
@@ -189,7 +186,6 @@ const Arb: React.FC = () => {
         padding={6}
         bg="teal.500"
       >
-        {/* Footer content here... */}
       </Flex>
     </Box>
   );

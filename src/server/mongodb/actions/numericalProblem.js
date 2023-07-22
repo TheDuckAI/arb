@@ -4,6 +4,15 @@ import {
   physicsImgModel,
 } from "../models/numerical_problem";
 
+import { ObjectId } from "mongodb";
+
+async function findOneByMongoId(model, id, projection) {
+    if (!ObjectId.isValid(id)) {
+        throw new Error("Invalid MongoDB ID format");
+    }
+    return await model.findById(id, projection);
+}
+
 async function getRandomMathProblem() {
   const randomDocument = await mathNumericalModel.aggregate([
     { $sample: { size: 1 } },
@@ -60,15 +69,28 @@ async function getAllPhysicsImgProblems() {
 }
 
 async function findMathProblemById(id) {
-  return findOneByMongoId(mathNumericalModel, id);
+  return findOneByMongoId(mathNumericalModel, id, {
+    "Problem Statement": 1,
+    Solution: 1,
+    "Final Answer": 1,
+  });
 }
 
 async function findPhysicsProblemById(id) {
-  return findOneByMongoId(physicsNumericalModel, id);
+  return findOneByMongoId(physicsNumericalModel, id, {
+    "Problem Statement": 1,
+    Solution: 1,
+    "Final Answer": 1,
+  });
 }
 
 async function findPhysicsImgProblemById(id) {
-  return findOneByMongoId(physicsImgModel, id);
+  return findOneByMongoId(physicsImgModel, id,  {
+    "Problem Statement": 1,
+    Images: 1,
+    Solution: 1,
+    "Final Answer": 1,
+  });
 }
 
 export {
