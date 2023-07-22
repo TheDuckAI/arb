@@ -1,6 +1,16 @@
 import { useEffect, useState } from "react";
-import { Box, Button, Flex, Heading, Select, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  Heading,
+  Icon,
+  Link,
+  Select,
+  Text,
+} from "@chakra-ui/react";
 import MathJaxComponent from "./Components/Mathjax";
+import { FaHome } from "react-icons/fa";
 
 interface LawProblem {
   "Problem Statement": string;
@@ -51,6 +61,9 @@ export default function Home() {
   const [finalAnswer, setFinalAnswer] = useState<string>("");
   const [solution, setSolution] = useState<string>("");
   const [answerCandidates, setAnswerCandidates] = useState<string[]>([]);
+
+  const [showSolution, setShowSolution] = useState(false);
+  const [showFinalAnswer, setShowFinalAnswer] = useState(false);
 
   const endpoints = {
     "Law Problem": "/api/lawProblem",
@@ -109,6 +122,15 @@ export default function Home() {
     setRandomEndpoint(selectedEndpoint);
     fetchProblem(selectedEndpoint);
   };
+
+  const toggleSolutionVisibility = () => {
+    setShowSolution((prevState) => !prevState);
+  };
+
+  const toggleFinalAnswerVisibility = () => {
+    setShowFinalAnswer((prevState) => !prevState);
+  };
+
   if (!problem) {
     return <div>Loading...</div>;
   }
@@ -118,58 +140,108 @@ export default function Home() {
   console.log("Final Answer:", finalAnswer);
 
   return (
-    <Flex direction="column" align="center" minHeight="100vh" p={2}>
-      <Heading mb={5}>Select Problem Type</Heading>
-      <Select value={problemType} onChange={handleProblemTypeChange} mb={4}>
-        {Object.keys(endpoints).map((problemType, index) => (
-          <option key={index} value={problemType}>
-            {problemType}
-          </option>
-        ))}
-      </Select>
-
-      <Button mt={2} mb={5} onClick={() => fetchProblem(randomEndpoint)}>
-        Fetch New Problem
-      </Button>
-
-      <Box w="full" borderWidth="1px" borderRadius="md" p={4} mb={5}>
-        <Box fontWeight="bold" mb={4}>
-          <MathJaxComponent problemStatement={problemStatement} />
-        </Box>
-
-        {!isNumericalProblem(problem) && (
-          <Box mt={5} key={`${problemType}-${Date.now()}`}>
-            <Text fontWeight="bold" mb={2}>
-              Answer Candidates:
+    <>
+      <Flex
+        as="nav"
+        align="center"
+        justify="space-between"
+        wrap="wrap"
+        padding={6}
+        bg="teal.500"
+        width="100%"
+        boxShadow="md"
+      >
+        <Flex align="center">
+          <Link
+            href="https://duckai.org"
+            mr={4}
+            display="flex"
+            alignItems="center"
+            color="white"
+          >
+            <Icon as={FaHome} w={6} h={6} />
+            <Text ml={2} fontSize="xl" fontWeight="bold">
+              DuckAI
             </Text>
-            {answerCandidates &&
-              answerCandidates.map((answer, index) => {
-                let prefix = String.fromCharCode(index + 65);
-                return (
-                  <Text key={index}>
-                    {`${prefix}. `}
-                    <MathJaxComponent problemStatement={answer} />
-                  </Text>
-                );
-              })}
-          </Box>
-        )}
-        {!isLawProblem(problem) && (
-          <Box mt={5}>
-            <Text fontWeight="bold" mb={2}>
-              Solution:
-            </Text>
-            {solution && <MathJaxComponent problemStatement={solution} />}
-          </Box>
-        )}
+          </Link>
+        </Flex>
+      </Flex>
+      <Flex
+        direction="column"
+        align="center"
+        minHeight="100vh"
+        maxW="80vw"
+        marginLeft="auto"
+        marginRight="auto"
+        p={2}
+      >
+        <Heading mb={5}>Advanced Reasoning Benchmark</Heading>
 
-        <Box mt={5}>
-          <Text fontWeight="bold" mb={2}>
-            Final Answer:
-          </Text>
-          <MathJaxComponent problemStatement={finalAnswer} />
+        <Heading mb={5} as="h4" size="md">
+          an interactive problem sampler
+        </Heading>
+        <Select value={problemType} onChange={handleProblemTypeChange} mb={4}>
+          {Object.keys(endpoints).map((problemType, index) => (
+            <option key={index} value={problemType}>
+              {problemType}
+            </option>
+          ))}
+        </Select>
+
+        <Button mt={2} mb={5} onClick={() => fetchProblem(randomEndpoint)}>
+          Fetch New Problem
+        </Button>
+
+        <Box w="full" borderWidth="1px" borderRadius="md" p={4} mb={5}>
+          <Box fontWeight="bold" mb={4}>
+            <MathJaxComponent problemStatement={problemStatement} />
+          </Box>
+
+          {!isNumericalProblem(problem) && (
+            <Box mt={5} key={`${problemType}-${Date.now()}`}>
+              <Text fontWeight="bold" mb={2}>
+                Answer Candidates:
+              </Text>
+              {answerCandidates &&
+                answerCandidates.map((answer, index) => {
+                  let prefix = String.fromCharCode(index + 65);
+                  return (
+                    <Text key={index}>
+                      {`${prefix}. `}
+                      <MathJaxComponent problemStatement={answer} />
+                    </Text>
+                  );
+                })}
+            </Box>
+          )}
+
+          <Button mt={2} onClick={toggleSolutionVisibility}>
+            {showSolution ? "Hide Solution" : "Show Solution"}
+          </Button>
+          {!isLawProblem(problem) && showSolution && (
+            <Box mt={5}>
+              <Text fontWeight="bold" mb={2}>
+                Solution:
+              </Text>
+              {solution && <MathJaxComponent problemStatement={solution} />}
+            </Box>
+          )}
+          <br />
+
+          <Button mt={2} onClick={toggleFinalAnswerVisibility}>
+            {showFinalAnswer ? "Hide Final Answer" : "Show Final Answer"}
+          </Button>
+
+          {showFinalAnswer && (
+            <Box mt={5}>
+              <Text fontWeight="bold" mb={2}>
+                Final Answer:
+              </Text>
+              <MathJaxComponent problemStatement={finalAnswer} />
+            </Box>
+          )}
         </Box>
-      </Box>
-    </Flex>
+      </Flex>
+    </>
   );
 }

@@ -16,10 +16,6 @@ const MathJaxComponent: React.FC<MathJaxProps> = ({ problemStatement }) => {
     while ((result = regex.exec(problemStatement)) !== null) {
       if (result[1]) {
         parsedString = parsedString.replace(result[0], `\\(${result[1]}\\)`);
-      } else if (result[2]) {
-        // No need to modify as it's already in desired format
-      } else if (result[3]) {
-        // No need to modify as it's already in desired format
       }
     }
 
