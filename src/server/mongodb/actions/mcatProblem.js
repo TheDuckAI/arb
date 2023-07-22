@@ -64,6 +64,18 @@ async function getAllScienceImagesProblems() {
   );
 }
 
+async function findReadingProblemById(id) {
+  return await findOneById(mcatReadingValModel, id);
+}
+
+async function findScienceProblemById(id) {
+  return await findOneById(mcatScienceValModel, id);
+}
+
+async function findScienceImagesProblemById(id) {
+  return await findOneById(mcatScienceImgModel, id);
+}
+
 export {
   getRandomReadingProblem,
   getRandomScienceProblem,
@@ -71,4 +83,7 @@ export {
   getAllReadingProblems,
   getAllScienceProblems,
   getAllScienceImagesProblems,
+  findReadingProblemById,
+  findScienceProblemById,
+  findScienceImagesProblemById,
 };

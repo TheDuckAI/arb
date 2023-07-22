@@ -1,9 +1,5 @@
 import lawProblem from "../models/law_problem";
 
-async function getLawProblemById(_id) {
-  return lawProblem.findOne({ _id });
-}
-
 async function getRandomLawProblem() {
   const randomDocument = await lawProblem.aggregate([{ $sample: { size: 1 } }]);
   return randomDocument[0];
@@ -19,4 +15,9 @@ async function getAllLawProblems() {
     }
   );
 }
-export { getLawProblemById, getRandomLawProblem, getAllLawProblems };
+
+async function findLawProblemById(id) {
+  return await findOneById(lawProblem, id);
+}
+
+export { findLawProblemById, getRandomLawProblem, getAllLawProblems };

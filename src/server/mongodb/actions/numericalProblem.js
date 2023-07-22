@@ -59,6 +59,18 @@ async function getAllPhysicsImgProblems() {
   );
 }
 
+async function findMathProblemById(id) {
+  return findOneByMongoId(mathNumericalModel, id);
+}
+
+async function findPhysicsProblemById(id) {
+  return findOneByMongoId(physicsNumericalModel, id);
+}
+
+async function findPhysicsImgProblemById(id) {
+  return findOneByMongoId(physicsImgModel, id);
+}
+
 export {
   getRandomMathProblem,
   getRandomPhysicsImgProblem,
@@ -66,4 +78,7 @@ export {
   getAllMathProblems,
   getAllPhysicsProblems,
   getAllPhysicsImgProblems,
+  findMathProblemById,
+  findPhysicsProblemById,
+  findPhysicsImgProblemById,
 };
