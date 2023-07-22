@@ -1,4 +1,5 @@
 import React from "react";
+import { redirect } from "next/navigation";
 import {
   Box,
   Flex,
@@ -38,7 +39,7 @@ const Arb: React.FC = () => {
       <Box as="section" bg="gray.100" py={10}>
         <Container maxW="container.md">
           <Flex direction="column" align="center">
-            <Heading as="h1" size="2xl">
+            <Heading as="h1" size="xl">
               ARB: Advanced Reasoning Benchmark for Large Language Models
             </Heading>
 
@@ -121,14 +122,16 @@ const Arb: React.FC = () => {
               >
                 Code
               </Button>
-              <Button
-                leftIcon={<FaImages />}
-                colorScheme="teal"
-                variant="solid"
-                ml={4}
-              >
-                Dataset
-              </Button>
+              <Link href="/home">
+                <Button
+                  leftIcon={<FaImages />}
+                  colorScheme="teal"
+                  variant="solid"
+                  ml={4}
+                >
+                  Interface
+                </Button>
+              </Link>
             </Flex>
           </Flex>
         </Container>

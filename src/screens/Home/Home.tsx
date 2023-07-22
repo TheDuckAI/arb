@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import { Image } from "@chakra-ui/react";
+import { Center } from "@chakra-ui/react";
+
 import {
   Box,
   Button,
@@ -196,6 +199,51 @@ export default function Home() {
           <Box fontWeight="bold" mb={4}>
             <MathJaxComponent problemStatement={problemStatement} />
           </Box>
+          {randomEndpoint === "/api/mcatScienceImageProblem" && (
+            <Box mt={5}>
+              <Text fontWeight="bold" mb={2}>
+                Images:
+              </Text>
+              {problem.Images &&
+                problem.Images.map((imageName, index) => {
+                  const imageUrl = `https://storage.googleapis.com/images_problems/${imageName}`;
+                  return (
+                    <Center key={index} mb={4}>
+                      <Image
+                        src={imageUrl}
+                        alt={`Problem image ${index + 1}`}
+                        width={"50%"}
+                        height={"auto"}
+                        maxW="50vw"
+                        mx="auto"
+                      />
+                    </Center>
+                  );
+                })}
+            </Box>
+          )}
+          {randomEndpoint === "/api/physicsImgProblem" && (
+            <Box mt={5}>
+              <Text fontWeight="bold" mb={2}>
+                Images:
+              </Text>
+              {problem.Images &&
+                problem.Images.map((imageUrl, index) => {
+                  return (
+                    <Center key={index} mb={4}>
+                      <Image
+                        src={imageUrl}
+                        alt={`Problem image ${index + 1}`}
+                        width={"50%"}
+                        height={"auto"}
+                        maxW="50vw"
+                        mx="auto"
+                      />
+                    </Center>
+                  );
+                })}
+            </Box>
+          )}
 
           {!isNumericalProblem(problem) && (
             <Box mt={5} key={`${problemType}-${Date.now()}`}>

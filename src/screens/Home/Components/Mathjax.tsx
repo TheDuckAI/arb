@@ -8,14 +8,16 @@ const MathJaxComponent: React.FC<MathJaxProps> = ({ problemStatement }) => {
   const [parsedContent, setParsedContent] = useState<string>("");
 
   useEffect(() => {
-    const regex = /\$(.*?)\$|\\\((.*?)\\\)|\\\[(.*?)\\\]/g;
+    const regex = /\$\$(.*?)\$\$|\$(.*?)\$|\\\((.*?)\\\)|\\\[(.*?)\\\]/g;
     let result;
 
     let parsedString = problemStatement;
 
     while ((result = regex.exec(problemStatement)) !== null) {
       if (result[1]) {
-        parsedString = parsedString.replace(result[0], `\\(${result[1]}\\)`);
+        parsedString = parsedString.replace(result[0], `\\[${result[1]}\\]`);
+      } else if (result[2]) {
+        parsedString = parsedString.replace(result[0], `\\(${result[2]}\\)`);
       }
     }
 

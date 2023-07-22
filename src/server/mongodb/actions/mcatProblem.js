@@ -4,25 +4,27 @@ import {
   mcatScienceImgModel,
 } from "../models/mcat_problem";
 
+import _ from "lodash";
+
 async function getRandomReadingProblem() {
-  const randomDocument = await mcatReadingValModel.aggregate([
-    { $sample: { size: 1 } },
+  const randomDocuments = await mcatReadingValModel.aggregate([
+    { $sample: { size: 5 } },
   ]);
-  return randomDocument[0];
+  return _.sample(randomDocuments);
 }
 
 async function getRandomScienceProblem() {
-  const randomDocument = await mcatScienceValModel.aggregate([
-    { $sample: { size: 1 } },
+  const randomDocuments = await mcatScienceValModel.aggregate([
+    { $sample: { size: 5 } },
   ]);
-  return randomDocument[0];
+  return _.sample(randomDocuments);
 }
 
 async function getRandomScienceImagesProblem() {
-  const randomDocument = await mcatScienceImgModel.aggregate([
-    { $sample: { size: 1 } },
+  const randomDocuments = await mcatScienceImgModel.aggregate([
+    { $sample: { size: 5 } },
   ]);
-  return randomDocument[0];
+  return _.sample(randomDocuments);
 }
 
 export {

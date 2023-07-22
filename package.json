@@ -24,6 +24,7 @@
     "framer-motion": "^10.13.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.3",
+    "lodash": "^4.17.21",
     "mongoose": "^7.3.3",
     "next": "13.4.9",
     "postcss": "8.4.25",
