@@ -10,10 +10,13 @@ async function getRandomLawProblem() {
 }
 
 async function getAllLawProblems() {
-  return await lawProblem.find({}, {
-    "Problem Statement": 1,
-    "Answer Candidates": 1,
-    "Final Answer": 1
-  });
+  return await lawProblem.find(
+    {},
+    {
+      "Problem Statement": 1,
+      "Answer Candidates": 1,
+      "Final Answer": 1,
+    }
+  );
 }
 export { getLawProblemById, getRandomLawProblem, getAllLawProblems };
