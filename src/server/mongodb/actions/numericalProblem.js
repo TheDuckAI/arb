@@ -25,8 +25,44 @@ async function getRandomPhysicsImgProblem() {
   return randomDocument[0];
 }
 
+
+async function getAllMathProblems() {
+  return await mathNumericalModel.find({}, {
+    "Problem Statement": 1,
+    "Solution": 1,
+    "Final Answer": 1
+  });
+}
+
+
+async function getAllPhysicsProblems() {
+  return await physicsNumericalModel.find({}, {
+    "Problem Statement": 1,
+    "Solution": 1,
+    "Final Answer": 1
+  });
+}
+
+
+async function getAllPhysicsImgProblems() {
+  return await physicsImgModel.find({}, {
+    "Problem Statement": 1,
+    "Images": 1,
+    "Solution": 1,
+    "Final Answer": 1
+  });
+}
+
+
+
+
+
+
 export {
   getRandomMathProblem,
   getRandomPhysicsImgProblem,
   getRandomPhysicsProblem,
+  getAllMathProblems,
+  getAllPhysicsProblems,
+  getAllPhysicsImgProblems
 };

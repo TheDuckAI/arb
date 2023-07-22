@@ -153,6 +153,7 @@ export default function Home() {
         bg="teal.500"
         width="100%"
         boxShadow="md"
+        mb={5}
       >
         <Flex align="center">
           <Link
@@ -201,9 +202,6 @@ export default function Home() {
           </Box>
           {randomEndpoint === "/api/mcatScienceImageProblem" && (
             <Box mt={5}>
-              <Text fontWeight="bold" mb={2}>
-                Images:
-              </Text>
               {problem.Images &&
                 problem.Images.map((imageName, index) => {
                   const imageUrl = `https://storage.googleapis.com/images_problems/${imageName}`;
@@ -224,9 +222,6 @@ export default function Home() {
           )}
           {randomEndpoint === "/api/physicsImgProblem" && (
             <Box mt={5}>
-              <Text fontWeight="bold" mb={2}>
-                Images:
-              </Text>
               {problem.Images &&
                 problem.Images.map((imageUrl, index) => {
                   return (
