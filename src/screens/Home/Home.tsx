@@ -157,16 +157,13 @@ export default function Home() {
       >
         <Flex align="center">
           <Link
-            href="https://duckai.org"
+            href="/"
             mr={4}
             display="flex"
             alignItems="center"
             color="white"
           >
             <Icon as={FaHome} w={6} h={6} />
-            <Text ml={2} fontSize="xl" fontWeight="bold">
-              DuckAI
-            </Text>
           </Link>
         </Flex>
       </Flex>

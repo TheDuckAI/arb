@@ -1,6 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import '../../public/fonts.css';
+
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -17,6 +19,8 @@
 }
 
 body {
+
+  font-family: 'Ubuntu', sans-serif;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,

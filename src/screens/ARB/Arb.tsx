@@ -78,7 +78,7 @@ const Arb: React.FC = () => {
               ))}
             </Text>
 
-            <Text fontSize="lg" mt={2}>
+            <Text fontWeight="bold" fontSize="lg" mt={2}>
                 {affiliations.map((affiliation, index) => (
                     <React.Fragment key={affiliation}>
                     <sup>{index + 1}</sup> {affiliation}
@@ -129,7 +129,7 @@ const Arb: React.FC = () => {
         </Container>
       </Box>
 
-      <Box as="section" py={10}>
+      <Box fontWeight="bold"  as="section" py={10}>
         <Container maxW="container.md">
           <Flex direction="column" align="center">
             <Heading as="h2" size="lg">
