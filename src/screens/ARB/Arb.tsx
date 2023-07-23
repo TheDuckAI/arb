@@ -8,6 +8,7 @@ import {
   IconButton,
   Button,
   Container,
+  Image,
   Icon,
 } from "@chakra-ui/react";
 import { FaHome, FaFilePdf, FaGithub, FaImages } from "react-icons/fa";
@@ -38,24 +39,26 @@ const affiliations = [
 const Arb: React.FC = () => {
   return (
     <Box bg="#F9FAFC">
-      <Flex
-        as="nav"
-        align="center"
-        justify="center"
-        wrap="wrap"
-        padding={6}
-        bg="teal.500"
-      >
-        <Box
-          flexBasis={{ base: "100%", md: "auto" }}
-          flexGrow={1}
-          textAlign={{ base: "center", md: "left" }}
-        >
-          <Link href="https://duckai.org" color="white">
-            <Icon as={FaHome} w={6} h={6} />
-          </Link>
-        </Box>
-      </Flex>
+     <Flex
+    as="nav"
+    align="center"
+    justify="center"
+    wrap="wrap"
+    padding={6}
+    bg="teal.500"
+>
+    <Box
+      flexBasis={{ base: "100%", md: "auto" }}
+      flexGrow={1}
+      textAlign={{ base: "center", md: "left" }}
+    >
+      <Link href="https://duckai.org">
+        <Image src="/twitter-card.png" alt="DuckAI Logo" maxW="150px" />
+      </Link>
+    </Box>
+</Flex>
+
+
 
       <Box as="section" bg="gray.100" py={10}>
         <Container maxW="container.md">
@@ -88,7 +91,7 @@ const Arb: React.FC = () => {
             </Text>
 
 
-            <Flex mt={4}>
+            <Flex mt={4} wrap="wrap" justify="center">
               <Button
                 leftIcon={<FaFilePdf />}
                 colorScheme="teal"
@@ -129,6 +132,8 @@ const Arb: React.FC = () => {
         </Container>
       </Box>
 
+      
+
       <Box fontWeight="bold"  as="section" py={10}>
         <Container maxW="container.md">
           <Flex direction="column" align="center">
@@ -136,7 +141,8 @@ const Arb: React.FC = () => {
               Abstract
             </Heading>
 
-            <Text textAlign="justify" mt={4} w="4/5">
+            <Flex direction="column" mt={4} w="full">
+            <Text textAlign="justify" mt={4} >
               Large Language Models (LLMs) have demonstrated remarkable
               performance on various quantitative reasoning and knowledge
               benchmarks, such as MMLU and MATH. However, many of these
@@ -150,7 +156,7 @@ const Arb: React.FC = () => {
               and law.
             </Text>
 
-            <Text textAlign="justify" mt={4} w="4/5">
+            <Text textAlign="justify" mt={4} >
               As a subset of ARB, we introduce a challenging set of math and
               physics problems which require advanced symbolic reasoning and
               domain knowledge. In order to improve both automatic and assisted
@@ -159,27 +165,52 @@ const Arb: React.FC = () => {
               intermediate reasoning steps.
             </Text>
 
-            <Text textAlign="justify" mt={4} w="4/5">
-              We evaluate recent models such as GPT-4 and Claude on ARB and
-              demonstrate that even with Chain-of-Thought prompting methods,
+            <Text textAlign="justify" mt={4} >
+              We evaluated recent models such as GPT-4 and Claude on ARB and
+              demonstrated that even with Chain-of-Thought prompting methods,
               current models score well below 50% on more demanding expert
-              tasks. Further, we conduct a human evaluation of the symbolic
+              tasks. Further, we conducted a human evaluation of the symbolic
               subset of ARB, finding close agreement between annotators and
               GPT-4 self-evaluation scores.
             </Text>
+
           </Flex>
+
+          </Flex>
+         
+          <br/>
+          <br/>
+          <Flex direction="column" align="center">
+          <Heading as="h2" size="lg">
+              Evaluation Results
+            </Heading>
+          <Box mt={4}>
+          <Image src="/parsed_results.png" alt="Eval Result" width="80%" mx="auto"/>
+        </Box>
+
+            </Flex>
         </Container>
       </Box>
-
       <Flex
-        as="footer"
-        align="center"
-        justify="center"
-        wrap="wrap"
-        padding={6}
-        bg="teal.500"
-      >
-      </Flex>
+  as="footer"
+  align="center"
+  justify="center"
+  wrap="wrap"
+  padding={6}
+  bg="teal.500"
+>
+  <Link 
+    href="https://github.com/TheDuckAI" 
+    color="white" 
+    textDecoration="underline" 
+    _hover={{ color: "white", textDecoration: "underline" }}
+  >
+    <Text fontWeight="bold" fontSize="md">
+      Built with ❤️ by DuckAI
+    </Text>
+  </Link>
+</Flex>
+
     </Box>
   );
 };

@@ -9,7 +9,7 @@ import { extendTheme } from "@chakra-ui/react";
 const theme = extendTheme({
   fonts: {
     heading: "Ubuntu",
-    body: "Cormorant Garamond",
+    body: "Cormorant Garamond"
   },
 });
 

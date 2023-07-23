@@ -13,7 +13,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import MathJaxComponent from "./Components/Mathjax";
-import { FaHome } from "react-icons/fa";
+import { FaArrowCircleLeft } from "react-icons/fa";
 
 interface LawProblem {
   "Problem Statement": string;
@@ -135,7 +135,19 @@ export default function Home() {
   };
 
   if (!problem) {
-    return <div>Loading...</div>;
+    return (
+      <Flex
+        width="100vw"
+        height="100vh"
+        align="center"
+        justify="center"
+        bg="gray.50" 
+      >
+        <Text fontSize="xl" fontWeight="bold" color="teal.500">
+          Loading...
+        </Text>
+      </Flex>
+    );
   }
 
   console.log("Problem Statement:", problemStatement);
@@ -144,29 +156,33 @@ export default function Home() {
 
   return (
     <>
-      <Flex
-        as="nav"
-        align="center"
-        justify="space-between"
-        wrap="wrap"
-        padding={6}
-        bg="teal.500"
-        width="100%"
-        boxShadow="md"
-        mb={5}
-      >
-        <Flex align="center">
-          <Link
-            href="/"
-            mr={4}
-            display="flex"
-            alignItems="center"
-            color="white"
-          >
-            <Icon as={FaHome} w={6} h={6} />
-          </Link>
-        </Flex>
-      </Flex>
+     <Flex
+    as="nav"
+    align="center"
+    justify="center"
+    wrap="wrap"
+    padding={6}
+    bg="teal.500"
+    mb="5"
+>
+    <Box
+      flexBasis={{ base: "100%", md: "auto" }}
+      flexGrow={1}
+      textAlign={{ base: "center", md: "left" }}
+    >
+      <Link href="https://duckai.org">
+        <Image src="/twitter-card.png" alt="DuckAI Logo" maxW="150px" />
+      </Link>
+    </Box>
+    <Box
+      flexBasis={{ base: "100%", md: "auto" }}
+    >
+      <Link href="/" title="Return Home">
+        <Icon as={FaArrowCircleLeft} w={6} h={6} color="white" />
+      </Link>
+    </Box>
+</Flex>
+
       <Flex
         direction="column"
         align="center"
@@ -282,6 +298,26 @@ export default function Home() {
           )}
         </Box>
       </Flex>
+      <Flex
+  as="footer"
+  align="center"
+  justify="center"
+  wrap="wrap"
+  padding={6}
+  bg="teal.500"
+>
+  <Link 
+    href="https://github.com/TheDuckAI" 
+    color="white" 
+    textDecoration="underline" 
+    _hover={{ color: "white", textDecoration: "underline" }}
+  >
+    <Text fontWeight="bold" fontSize="md">
+      Built with ❤️ by DuckAI
+    </Text>
+  </Link>
+</Flex>
+
     </>
   );
 }
