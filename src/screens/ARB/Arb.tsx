@@ -13,9 +13,31 @@ import {
 import { FaHome, FaFilePdf, FaGithub, FaImages } from "react-icons/fa";
 import { AiFillFile } from "react-icons/ai";
 
+
+const authors = [
+    { name: "Tomohiro Sawada", affiliations: [1, 2], href: "https://tomohiro-sawada.github.io/" },
+    { name: "Daniel Paleka", affiliations: [1, 3], href: "https://danielpaleka.com/" },
+    { name: "Alexander Havrilla", affiliations: [1, 2], href: "https://dahoas.github.io/" },
+    { name: "Pranav Tadepalli", affiliations: [1, 2], href: "https://pranav.cc/" },
+    { name: "Paula Vidas", affiliations: [1], href: "#" },
+    { name: "Alexander Kranias", affiliations: [1, 2], href: "https://alexkranias.com/index.html" },
+    { name: "John J Nay", affiliations: [4, 5], href: "http://johnjnay.com/" },
+    { name: "Kshitij Gupta", affiliations: [1, 6], href: "https://kshitijkg.github.io/" },
+    { name: "Aran Komatsuzaki", affiliations: [1, 2], href: "https://twitter.com/arankomatsuzaki" }
+];
+
+const affiliations = [
+    "DuckAI",
+    "Georgia Tech",
+    "ETH Zürich",
+    "Nomos AI",
+    "Stanford University Center for Legal Informatics",
+    "MILA"
+  ];
+
 const Arb: React.FC = () => {
   return (
-    <Box>
+    <Box bg="#F9FAFC">
       <Flex
         as="nav"
         align="center"
@@ -43,59 +65,28 @@ const Arb: React.FC = () => {
             </Heading>
 
             <Text fontSize="lg" mt={4}>
-              <Link href="https://tomohiro-sawada.github.io/" color="teal.500">
-                Tomohiro Sawada
-              </Link>
-              <sup>1,2</sup>,
-              <Link href="https://danielpaleka.com/" color="teal.500" ml={2}>
-                Daniel Paleka
-              </Link>
-              <sup>1,3</sup>,
-              <Link href="https://dahoas.github.io/" color="teal.500" ml={2}>
-                Alexander Havrilla
-              </Link>
-              <sup>1,2</sup>,
-              <Link href="https://pranav.cc/" color="teal.500" ml={2}>
-                Pranav Tadepalli
-              </Link>
-              <sup>1,2</sup>,
-              <Link href="#" color="teal.500" ml={2}>
-                Paula Vidas
-              </Link>
-              <sup>1</sup>,
-              <Link
-                href="https://alexkranias.com/index.html"
-                color="teal.500"
-                ml={2}
-              >
-                Alexander Kranias
-              </Link>
-              <sup>1,2</sup>,
-              <Link href="http://johnjnay.com/" color="teal.500" ml={2}>
-                John J Nay
-              </Link>
-              <sup>1</sup>,
-              <Link href="https://kshitijkg.github.io/" color="teal.500" ml={2}>
-                Kshitij Gupta
-              </Link>
-              <sup>1,4</sup>,
-              <Link
-                href="https://twitter.com/arankomatsuzaki"
-                color="teal.500"
-                ml={2}
-              >
-                Aran Komatsuzaki
-              </Link>
-              <sup>1,2</sup>
+              {authors.map((author, index) => (
+                <React.Fragment key={author.name}>
+                  <Link href={author.href} color="teal.500">
+                    {author.name}
+                  </Link>
+                  <sup>
+                    {author.affiliations.join(",")}
+                  </sup>
+                  {index < authors.length - 1 && ", "}
+                </React.Fragment>
+              ))}
             </Text>
 
             <Text fontSize="lg" mt={2}>
-              <Link href="https://duckai.org" color="teal.500">
-                DuckAI
-              </Link>
-              , Georgia Institute of Technology, ETH Zürich, Mila - Quebec AI
-              Institute
+                {affiliations.map((affiliation, index) => (
+                    <React.Fragment key={affiliation}>
+                    <sup>{index + 1}</sup> {affiliation}
+                    {index < affiliations.length - 1 && ", "}
+                    </React.Fragment>
+                ))}
             </Text>
+
 
             <Flex mt={4}>
               <Button
@@ -113,6 +104,7 @@ const Arb: React.FC = () => {
               >
                 arXiv
               </Button>
+              <Link href="https://github.com/TheDuckAI/arb">
               <Button
                 leftIcon={<FaGithub />}
                 colorScheme="teal"
@@ -121,6 +113,7 @@ const Arb: React.FC = () => {
               >
                 Code
               </Button>
+              </Link>
               <Link href="/home">
                 <Button
                   leftIcon={<FaImages />}
