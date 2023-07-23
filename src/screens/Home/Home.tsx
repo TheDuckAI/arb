@@ -141,7 +141,7 @@ export default function Home() {
         height="100vh"
         align="center"
         justify="center"
-        bg="gray.50" 
+        bg="gray.50"
       >
         <Text fontSize="xl" fontWeight="bold" color="teal.500">
           Loading...
@@ -156,32 +156,33 @@ export default function Home() {
 
   return (
     <>
-     <Flex
-    as="nav"
-    align="center"
-    justify="center"
-    wrap="wrap"
-    padding={6}
-    bg="teal.500"
-    mb="5"
->
-    <Box
-      flexBasis={{ base: "100%", md: "auto" }}
-      flexGrow={1}
-      textAlign={{ base: "center", md: "left" }}
-    >
-      <Link href="https://duckai.org">
-        <Image src="/twitter-card.png" alt="DuckAI Logo" maxW="150px" />
-      </Link>
-    </Box>
-    <Box
-      flexBasis={{ base: "100%", md: "auto" }}
-    >
-      <Link href="/" title="Return Home">
-        <Icon as={FaArrowCircleLeft} w={6} h={6} color="white" />
-      </Link>
-    </Box>
-</Flex>
+      <Flex
+        as="nav"
+        align="center"
+        justify="center"
+        wrap="wrap"
+        padding={6}
+        bg="teal.500"
+        mb="5"
+        position="sticky"
+        top={0}
+        zIndex={1000}
+      >
+        <Box
+          flexBasis={{ base: "100%", md: "auto" }}
+          flexGrow={1}
+          textAlign={{ base: "center", md: "left" }}
+        >
+          <Link href="https://duckai.org">
+            <Image src="/twitter-card.png" alt="DuckAI Logo" maxW="150px" />
+          </Link>
+        </Box>
+        <Box flexBasis={{ base: "100%", md: "auto" }}>
+          <Link href="/" title="Return Home">
+            <Icon as={FaArrowCircleLeft} w={6} h={6} color="white" />
+          </Link>
+        </Box>
+      </Flex>
 
       <Flex
         direction="column"
@@ -299,25 +300,24 @@ export default function Home() {
         </Box>
       </Flex>
       <Flex
-  as="footer"
-  align="center"
-  justify="center"
-  wrap="wrap"
-  padding={6}
-  bg="teal.500"
->
-  <Link 
-    href="https://github.com/TheDuckAI" 
-    color="white" 
-    textDecoration="underline" 
-    _hover={{ color: "white", textDecoration: "underline" }}
-  >
-    <Text fontWeight="bold" fontSize="md">
-      Built with ❤️ by DuckAI
-    </Text>
-  </Link>
-</Flex>
-
+        as="footer"
+        align="center"
+        justify="center"
+        wrap="wrap"
+        padding={6}
+        bg="teal.500"
+      >
+        <Link
+          href="https://github.com/TheDuckAI"
+          color="white"
+          textDecoration="underline"
+          _hover={{ color: "white", textDecoration: "underline" }}
+        >
+          <Text fontWeight="bold" fontSize="md">
+            Built with ❤️ by DuckAI
+          </Text>
+        </Link>
+      </Flex>
     </>
   );
 }

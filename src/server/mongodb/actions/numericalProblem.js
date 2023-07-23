@@ -7,10 +7,10 @@ import {
 import { ObjectId } from "mongodb";
 
 async function findOneByMongoId(model, id, projection) {
-    if (!ObjectId.isValid(id)) {
-        throw new Error("Invalid MongoDB ID format");
-    }
-    return await model.findById(id, projection);
+  if (!ObjectId.isValid(id)) {
+    throw new Error("Invalid MongoDB ID format");
+  }
+  return await model.findById(id, projection);
 }
 
 async function getRandomMathProblem() {
@@ -85,7 +85,7 @@ async function findPhysicsProblemById(id) {
 }
 
 async function findPhysicsImgProblemById(id) {
-  return findOneByMongoId(physicsImgModel, id,  {
+  return findOneByMongoId(physicsImgModel, id, {
     "Problem Statement": 1,
     Images: 1,
     Solution: 1,

@@ -9,7 +9,7 @@ import { extendTheme } from "@chakra-ui/react";
 const theme = extendTheme({
   fonts: {
     heading: "Ubuntu",
-    body: "Cormorant Garamond"
+    body: "Cormorant Garamond",
   },
 });
 
@@ -18,12 +18,11 @@ export const cormorantGaramond = Cormorant_Garamond({
   weight: "500",
 });
 
-
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ChakraProvider theme = {theme}>
+    <ChakraProvider theme={theme}>
       <main className={cormorantGaramond.className}>
-        <Component {...pageProps}/>
+        <Component {...pageProps} />
       </main>
     </ChakraProvider>
   );

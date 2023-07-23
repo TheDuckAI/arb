@@ -3,10 +3,10 @@ import lawProblem from "../models/law_problem";
 import { ObjectId } from "mongodb";
 
 async function findOneById(model, id, projection) {
-    if (!ObjectId.isValid(id)) {
-        throw new Error("Invalid MongoDB ID format");
-    }
-    return await model.findById(id, projection);
+  if (!ObjectId.isValid(id)) {
+    throw new Error("Invalid MongoDB ID format");
+  }
+  return await model.findById(id, projection);
 }
 
 async function getRandomLawProblem() {
