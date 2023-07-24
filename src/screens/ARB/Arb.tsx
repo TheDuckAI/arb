@@ -10,6 +10,7 @@ import {
   Container,
   Image,
   Icon,
+  Code
 } from "@chakra-ui/react";
 import {
   FaArrowCircleRight,
@@ -18,6 +19,7 @@ import {
   FaImages,
 } from "react-icons/fa";
 import { AiFillFile } from "react-icons/ai";
+
 
 const authors = [
   {
@@ -68,7 +70,14 @@ const affiliations = [
   "MILA",
 ];
 
+
+
+
+
 const Arb: React.FC = () => {
+  const example_problems = ["/proof_1.png", "/proof_2.png"];
+  const overview = ["/parsed_results.png", "/rubric_eval.png", "/rubric_example.png","sample_model_response.png"];
+
   return (
     <Box bg="#F9FAFC">
       <Flex
@@ -216,10 +225,68 @@ const Arb: React.FC = () => {
 
           <br />
           <br />
+
+          <Flex direction="column" align="center">
+            <Heading as="h2" size="lg">
+              Sample Problems
+            </Heading>
+
+
+            <Text textAlign="justify" mt={4}>
+                Math Symbolic
+              </Text> 
+            <Box mt={4}>
+              <Image
+                src="/examples/symbolic.png"
+                alt="Symbolic"
+                width="80%"
+                mx="auto"
+              />
+            </Box>
+
+            <Text textAlign="justify" mt={4}>
+                Math Proof-like
+              </Text> 
+            <Box mt={4}>
+              <Image
+                src="/examples/proof_1.png"
+                alt="Proof-like"
+                width="80%"
+                mx="auto"
+              />
+            </Box>
+
+            <Text textAlign="justify" mt={4}>
+                Physics Symbolic
+              </Text> 
+            <Box mt={4}>
+              <Image
+                src="/examples/physics_symbolic_1.png"
+                alt="Physics Symbolic"
+                width="80%"
+                mx="auto"
+              />
+            </Box>
+
+
+            <Text textAlign="justify" mt={4}>
+                ... see more in the interface!  
+                <Link href="/home" title="Go to interface">
+                  <Icon as={FaArrowCircleRight} w={6} h={6} color="teal" />
+                </Link> 
+            </Text> 
+          </Flex>
+
+          <br />
+          <br />
+
           <Flex direction="column" align="center">
             <Heading as="h2" size="lg">
               Evaluation Results
             </Heading>
+            <Text textAlign="justify" mt={4}>
+            Our evaluation of current large language models (LLMs) focuses on text-only problems, with no multimodal tasks, using models including ChatGPT, GPT 3.5, GPT-4, and Claude. Each question type is assessed with task-specific instructions and chain of thought; for multiple-choice questions, the model's choice is compared with the correct answer, while numerical, symbolic, and proof-like problems require extraction and parsing of the model's answer, often requiring mathematical libraries and manual grading due to their complexity. We also tested two model-based approaches for grading, including GPT-4's ability to grade equivalence of two symbolic expressions and a rubric-based evaluation method, which showed promising results, facilitating the evaluation of increasingly unstructured answers.
+              </Text>
             <Box mt={4}>
               <Image
                 src="/parsed_results.png"
@@ -229,8 +296,71 @@ const Arb: React.FC = () => {
               />
             </Box>
           </Flex>
-        </Container>
-      </Box>
+
+          <br />
+          <br />
+          
+          <Flex direction="column" align="center">
+            <Heading as="h2" size="lg">
+              Model-based Rubric Evaluation
+            </Heading>
+            <Text textAlign="justify" mt={4}>
+            As the complexity of reasoning tasks for language learning models (LLMs) grows, reliable evaluation becomes challenging due to difficulties in grading symbolic answers and assessing intermediate reasoning steps. We propose an approach where the model generates and uses rubrics to evaluate solutions, based on reference solutions and examples of human-crafted rubrics. Our evaluation revealed that GPT-4 creates effective rubrics, covering key solution steps well but struggling with point allocation, outperforming its predecessor, GPT-3.5-turbo.
+              </Text>
+            <Box mt={4}>
+              <Image
+                src="/rubric_eval.png"
+                alt="Rubric Eval"
+                width="80%"
+                mx="auto"
+              />
+              <Image
+                src="/rubric_example.png"
+                alt="Rubric Example"
+                width="80%"
+                mx="auto"
+              />
+            </Box>
+          </Flex>
+
+          <br />
+          <br />
+
+          <Flex direction="column" align="center">
+            <Heading as="h2" size="lg">
+              BibTex
+            </Heading>
+            <Box as="pre" whiteSpace="pre-wrap">
+            <Code>
+              {`@misc{sawada2023arb,
+                title={ARB: Advanced Reasoning Benchmark for Large Language Models},
+                author={Tomohiro Sawada, Daniel Paleka, Alexander Havrilla, Pranav Tadepalli, Paula Vidas, Alexander Perikles Kranias, John J Nay, Kshitij Gupta, Aran Komatsuzaki},
+                year={2023},
+                eprint={TBD},
+                archivePrefix={arXiv},
+                primaryClass={cs.LG, cs.CL}
+              }`}
+            </Code>
+            </Box>
+          </Flex> 
+
+
+          <br />
+          <br />    
+
+
+         <Flex direction="column" align="center">
+            <Heading as="h2" size="lg">
+              Acknowledgements
+            </Heading>
+            <Text textAlign="justify" mt={4}>
+            We thank Jeffrey Deng for developing and documenting the API, and building the project website. 
+            We would also like to thank Raunak Chowdhuri for helpful comments, and Zhangir Azerbayev for useful discussions early on in the project. TS is supported by NSF grant 1745583.      
+              </Text>
+          </Flex>
+
+      </Container>
+    </Box>
       
       <Flex
         as="footer"
