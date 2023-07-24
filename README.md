@@ -1,5 +1,5 @@
 <h1 align="center">
-  <a href="https://duckai.org"><img src="https://raw.githubusercontent.com/TheDuckAI/community-website/main/public/logo-arb-pic.png" alt="duckai logo" width="150"></a>
+  <a href="https://duckai.org"><img src="https://raw.githubusercontent.com/TheDuckAI/duck_ai_website/main/public/static/images/twitter-card.png" alt="duckai logo" width="150"></a>
   <br/>
   Advanced Reasoning Benchmark
   </br>
