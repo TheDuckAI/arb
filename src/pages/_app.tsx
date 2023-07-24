@@ -2,26 +2,25 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { ChakraProvider } from "@chakra-ui/react";
 
-import { Cormorant_Garamond } from "@next/font/google";
+import { Lato } from "@next/font/google";
 
 import { extendTheme } from "@chakra-ui/react";
 
 const theme = extendTheme({
   fonts: {
-    heading: "Ubuntu",
-    body: "Cormorant Garamond",
+    heading: "Ubuntu"
   },
 });
 
-export const cormorantGaramond = Cormorant_Garamond({
-  subsets: ["cyrillic"],
-  weight: "500",
+export const roboto = Lato({
+  subsets: ["latin"],
+  weight: "300",
 });
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
-      <main className={cormorantGaramond.className}>
+      <main className={roboto.className}>
         <Component {...pageProps} />
       </main>
     </ChakraProvider>

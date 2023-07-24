@@ -231,6 +231,7 @@ const Arb: React.FC = () => {
           </Flex>
         </Container>
       </Box>
+      
       <Flex
         as="footer"
         align="center"

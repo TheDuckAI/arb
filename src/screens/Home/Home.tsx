@@ -14,33 +14,8 @@ import {
 } from "@chakra-ui/react";
 import MathJaxComponent from "./Components/Mathjax";
 import { FaArrowCircleLeft } from "react-icons/fa";
+import { LawProblem, numericalProblem } from "@/types/Problem";
 
-interface LawProblem {
-  "Problem Statement": string;
-  "Problem Number": string;
-  Topic: string;
-  Source: string;
-  "Answer Candidates": string[];
-  "Output Format Instructions": string;
-  Solution: string;
-  "Final Answer": string;
-  Images: string[];
-  "Problem Type": string;
-  _id: string;
-}
-
-interface numericalProblem {
-  Problem_Statement: string;
-  "Problem Type": string;
-  Topic: string;
-  Solution: string;
-  "Final Answer": string;
-  Images: string[];
-  "Output Format Instructions": string;
-  rubric: string;
-  rubric_template: string;
-  _id: string;
-}
 
 function isNumericalProblem(
   problem: LawProblem | numericalProblem
