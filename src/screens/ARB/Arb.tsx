@@ -377,7 +377,7 @@ const Arb: React.FC = () => {
           _hover={{ color: "white", textDecoration: "underline" }}
         >
           <Text fontWeight="bold" fontSize="md">
-            Built with ❤️ by DuckAI
+            Copyright © 2023 DuckAI
           </Text>
         </Link>
       </Flex>
