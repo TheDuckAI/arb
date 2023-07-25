@@ -16,7 +16,6 @@ import MathJaxComponent from "./Components/Mathjax";
 import { FaArrowCircleLeft } from "react-icons/fa";
 import { LawProblem, numericalProblem } from "@/types/Problem";
 
-
 function isNumericalProblem(
   problem: LawProblem | numericalProblem
 ): problem is numericalProblem {
@@ -45,12 +44,12 @@ export default function Home() {
 
   const endpoints = {
     "Law Problem": "/api/lawProblem",
-    "Math Problem": "/api/mathProblem",
+    "Math Numerical Problem": "/api/mathProblem",
     "MCAT Reading Problem": "/api/mcatReadingProblem",
     "MCAT Science Problem": "/api/mcatScienceProblem",
     "MCAT Science Image Problem": "/api/mcatScienceImageProblem",
-    "Physics Problem": "/api/physicsProblem",
-    "Physics Image Problem": "/api/physicsImgProblem",
+    "Physics Numerical Problem": "/api/physicsProblem",
+    "Physics Numerical Image Problem": "/api/physicsImgProblem",
   };
 
   const fetchProblem = (endpoint: string) => {
@@ -171,8 +170,9 @@ export default function Home() {
         <Heading mb={5}>Advanced Reasoning Benchmark</Heading>
 
         <Heading mb={5} as="h4" size="md">
-          an interactive problem sampler
+          an interactive problem sampler*
         </Heading>
+
         <Select value={problemType} onChange={handleProblemTypeChange} mb={4}>
           {Object.keys(endpoints).map((problemType, index) => (
             <option key={index} value={problemType}>
@@ -247,9 +247,11 @@ export default function Home() {
             </Box>
           )}
 
-          <Button mt={2} onClick={toggleSolutionVisibility}>
-            {showSolution ? "Hide Solution" : "Show Solution"}
-          </Button>
+          {!isLawProblem(problem) && (
+            <Button mt={2} onClick={toggleSolutionVisibility}>
+              {showSolution ? "Hide Solution" : "Show Solution"}
+            </Button>
+          )}
           {!isLawProblem(problem) && showSolution && (
             <Box mt={5}>
               <Text fontWeight="bold" mb={2}>
@@ -273,7 +275,15 @@ export default function Home() {
             </Box>
           )}
         </Box>
+
+        <Heading mb={5} as="h5" size="sm">
+          * To prevent data contamination in the training data of future models,
+          only the validation split has been made available on the web
+          interface. <br /> For details, please refer to section C of the
+          appendix in the paper.
+        </Heading>
       </Flex>
+
       <Flex
         as="footer"
         align="center"

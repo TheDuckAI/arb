@@ -10,7 +10,7 @@ import {
   Container,
   Image,
   Icon,
-  Code
+  Code,
 } from "@chakra-ui/react";
 import {
   FaArrowCircleRight,
@@ -19,7 +19,6 @@ import {
   FaImages,
 } from "react-icons/fa";
 import { AiFillFile } from "react-icons/ai";
-
 
 const authors = [
   {
@@ -70,13 +69,14 @@ const affiliations = [
   "MILA",
 ];
 
-
-
-
-
 const Arb: React.FC = () => {
   const example_problems = ["/proof_1.png", "/proof_2.png"];
-  const overview = ["/parsed_results.png", "/rubric_eval.png", "/rubric_example.png","sample_model_response.png"];
+  const overview = [
+    "/parsed_results.png",
+    "/rubric_eval.png",
+    "/rubric_example.png",
+    "sample_model_response.png",
+  ];
 
   return (
     <Box bg="#F9FAFC">
@@ -145,6 +145,9 @@ const Arb: React.FC = () => {
                 leftIcon={<FaFilePdf />}
                 colorScheme="teal"
                 variant="solid"
+                w={["100%", "auto"]}
+                mb={4}
+                mr={[0, 4]}
               >
                 Paper
               </Button>
@@ -152,7 +155,9 @@ const Arb: React.FC = () => {
                 leftIcon={<AiFillFile />}
                 colorScheme="teal"
                 variant="solid"
-                ml={4}
+                w={["100%", "auto"]}
+                mb={4}
+                mr={[0, 4]}
               >
                 arXiv
               </Button>
@@ -161,7 +166,9 @@ const Arb: React.FC = () => {
                   leftIcon={<FaGithub />}
                   colorScheme="teal"
                   variant="solid"
-                  ml={4}
+                  w={["100%", "auto"]}
+                  mb={4}
+                  mr={[0, 4]}
                 >
                   Code
                 </Button>
@@ -171,7 +178,8 @@ const Arb: React.FC = () => {
                   leftIcon={<FaImages />}
                   colorScheme="teal"
                   variant="solid"
-                  ml={4}
+                  w={["100%", "auto"]}
+                  mb={4}
                 >
                   Interface
                 </Button>
@@ -231,10 +239,9 @@ const Arb: React.FC = () => {
               Sample Problems
             </Heading>
 
-
             <Text textAlign="justify" mt={4}>
-                Math Symbolic
-              </Text> 
+              Math Symbolic
+            </Text>
             <Box mt={4}>
               <Image
                 src="/examples/symbolic.png"
@@ -245,8 +252,8 @@ const Arb: React.FC = () => {
             </Box>
 
             <Text textAlign="justify" mt={4}>
-                Math Proof-like
-              </Text> 
+              Math Proof-like
+            </Text>
             <Box mt={4}>
               <Image
                 src="/examples/proof_1.png"
@@ -257,8 +264,8 @@ const Arb: React.FC = () => {
             </Box>
 
             <Text textAlign="justify" mt={4}>
-                Physics Symbolic
-              </Text> 
+              Physics Symbolic
+            </Text>
             <Box mt={4}>
               <Image
                 src="/examples/physics_symbolic_1.png"
@@ -268,13 +275,12 @@ const Arb: React.FC = () => {
               />
             </Box>
 
-
             <Text textAlign="justify" mt={4}>
-                ... see more in the interface!  
-                <Link href="/home" title="Go to interface">
-                  <Icon as={FaArrowCircleRight} w={6} h={6} color="teal" />
-                </Link> 
-            </Text> 
+              ... see more in the interface!
+              <Link href="/home" title="Go to interface">
+                <Icon as={FaArrowCircleRight} w={6} h={6} color="teal" />
+              </Link>
+            </Text>
           </Flex>
 
           <br />
@@ -285,8 +291,20 @@ const Arb: React.FC = () => {
               Evaluation Results
             </Heading>
             <Text textAlign="justify" mt={4}>
-            Our evaluation of current large language models (LLMs) focuses on text-only problems, with no multimodal tasks, using models including ChatGPT, GPT 3.5, GPT-4, and Claude. Each question type is assessed with task-specific instructions and chain of thought; for multiple-choice questions, the model&apos;s choice is compared with the correct answer, while numerical, symbolic, and proof-like problems require extraction and parsing of the model&apos;s answer, often requiring mathematical libraries and manual grading due to their complexity. We also tested two model-based approaches for grading, including GPT-4&apos;s ability to grade equivalence of two symbolic expressions and a rubric-based evaluation method, which showed promising results, facilitating the evaluation of increasingly unstructured answers.
-              </Text>
+              Our evaluation of current large language models (LLMs) focuses on
+              text-only problems, with no multimodal tasks, using models
+              including ChatGPT, GPT 3.5, GPT-4, and Claude. Each question type
+              is assessed with task-specific instructions and chain of thought;
+              for multiple-choice questions, the model&apos;s choice is compared
+              with the correct answer, while numerical, symbolic, and proof-like
+              problems require extraction and parsing of the model&apos;s
+              answer, often requiring mathematical libraries and manual grading
+              due to their complexity. We also tested two model-based approaches
+              for grading, including GPT-4&apos;s ability to grade equivalence
+              of two symbolic expressions and a rubric-based evaluation method,
+              which showed promising results, facilitating the evaluation of
+              increasingly unstructured answers.
+            </Text>
             <Box mt={4}>
               <Image
                 src="/parsed_results.png"
@@ -299,14 +317,22 @@ const Arb: React.FC = () => {
 
           <br />
           <br />
-          
+
           <Flex direction="column" align="center">
             <Heading as="h2" size="lg">
               Model-based Rubric Evaluation
             </Heading>
             <Text textAlign="justify" mt={4}>
-            As the complexity of reasoning tasks for language learning models (LLMs) grows, reliable evaluation becomes challenging due to difficulties in grading symbolic answers and assessing intermediate reasoning steps. We propose an approach where the model generates and uses rubrics to evaluate solutions, based on reference solutions and examples of human-crafted rubrics. Our evaluation revealed that GPT-4 creates effective rubrics, covering key solution steps well but struggling with point allocation, outperforming its predecessor, GPT-3.5-turbo.
-              </Text>
+              As the complexity of reasoning tasks for language learning models
+              (LLMs) grows, reliable evaluation becomes challenging due to
+              difficulties in grading symbolic answers and assessing
+              intermediate reasoning steps. We propose an approach where the
+              model generates and uses rubrics to evaluate solutions, based on
+              reference solutions and examples of human-crafted rubrics. Our
+              evaluation revealed that GPT-4 creates effective rubrics, covering
+              key solution steps well but struggling with point allocation,
+              outperforming its predecessor, GPT-3.5-turbo.
+            </Text>
             <Box mt={4}>
               <Image
                 src="/rubric_eval.png"
@@ -331,8 +357,8 @@ const Arb: React.FC = () => {
               BibTex
             </Heading>
             <Box as="pre" whiteSpace="pre-wrap">
-            <Code>
-              {`@misc{sawada2023arb,
+              <Code>
+                {`@misc{sawada2023arb,
                 title={ARB: Advanced Reasoning Benchmark for Large Language Models},
                 author={Tomohiro Sawada, Daniel Paleka, Alexander Havrilla, Pranav Tadepalli, Paula Vidas, Alexander Perikles Kranias, John J Nay, Kshitij Gupta, Aran Komatsuzaki},
                 year={2023},
@@ -340,28 +366,28 @@ const Arb: React.FC = () => {
                 archivePrefix={arXiv},
                 primaryClass={cs.LG, cs.CL}
               }`}
-            </Code>
+              </Code>
             </Box>
-          </Flex> 
-
+          </Flex>
 
           <br />
-          <br />    
+          <br />
 
-
-         <Flex direction="column" align="center">
+          <Flex direction="column" align="center">
             <Heading as="h2" size="lg">
               Acknowledgements
             </Heading>
             <Text textAlign="justify" mt={4}>
-            We thank Jeffrey Deng for developing and documenting the API, and building the project website. 
-            We would also like to thank Raunak Chowdhuri for helpful comments, and Zhangir Azerbayev for useful discussions early on in the project. TS is supported by NSF grant 1745583.      
-              </Text>
+              We thank Jeffrey Deng for developing and documenting the API, and
+              building the project website. We would also like to thank Raunak
+              Chowdhuri for helpful comments, and Zhangir Azerbayev for useful
+              discussions early on in the project. TS is supported by NSF grant
+              1745583.
+            </Text>
           </Flex>
+        </Container>
+      </Box>
 
-      </Container>
-    </Box>
-      
       <Flex
         as="footer"
         align="center"
