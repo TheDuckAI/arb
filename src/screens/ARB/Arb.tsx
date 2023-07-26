@@ -144,9 +144,11 @@ const Arb: React.FC = () => {
             <Flex mt={4} wrap="wrap" justify="center">
               <Link
                 href="https://arxiv.org/pdf/2307.13692.pdf"
-                w={["50%", "auto"]}
+                w={["auto", "calc(20% - 16px)"]}
                 mb={4}
-                mr={[0, 4]}
+                mr={4}
+                display="flex"
+                justifyContent="center"
               >
                 <Button
                   w={"140px"}
@@ -157,11 +159,14 @@ const Arb: React.FC = () => {
                   Paper
                 </Button>
               </Link>
+
               <Link
                 href="https://arxiv.org/abs/2307.13692"
-                w={["50%", "auto"]}
+                w={["auto", "calc(20% - 16px)"]}
                 mb={4}
-                mr={[0, 4]}
+                mr={4}
+                display="flex"
+                justifyContent="center"
               >
                 <Button
                   w={"140px"}
@@ -172,11 +177,14 @@ const Arb: React.FC = () => {
                   arXiv
                 </Button>
               </Link>
+
               <Link
                 href="https://github.com/TheDuckAI/arb"
-                w={["33.33%", "auto"]}
+                w={["auto", "calc(20% - 16px)"]}
                 mb={4}
-                mr={[0, 4]}
+                mr={4}
+                display="flex"
+                justifyContent="center"
               >
                 <Button
                   w={"140px"}
@@ -187,7 +195,15 @@ const Arb: React.FC = () => {
                   Code
                 </Button>
               </Link>
-              <Link href="/home" w={["33.33%", "auto"]} mb={4}>
+
+              <Link
+                href="/home"
+                w={["auto", "calc(20% - 16px)"]}
+                mb={4}
+                mr={4}
+                display="flex"
+                justifyContent="center"
+              >
                 <Button
                   w={"140px"}
                   leftIcon={<FaImages />}
@@ -197,11 +213,13 @@ const Arb: React.FC = () => {
                   Interface
                 </Button>
               </Link>
+
               <Link
                 href="https://app.swaggerhub.com/apis-docs/arb-dataset/arb-api/1.0.5"
-                w={["33.33%", "auto"]}
+                w={["auto", "calc(20% - 16px)"]}
                 mb={4}
-                mr={[0, 4]}
+                display="flex"
+                justifyContent="center"
               >
                 <Button
                   w={"140px"}
