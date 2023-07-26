@@ -18,7 +18,6 @@
 
 ARB is a novel benchmark dataset composed of advanced reasoning problems designed to evaluate LLMs on text comprehension and expert domain reasoning, presenting a more challenging test than prior benchmarks, featuring questions that test deeper knowledge of mathematics, physics, biology, chemistry, and law.
 
-This repository hosts a problem sampler as well as the dedicated API for our dataset.
 
 ### API Usage
 
