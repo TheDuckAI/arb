@@ -13,7 +13,7 @@ const MathJaxComponent: React.FC<MathJaxProps> = ({ problemStatement }) => {
 
     let parsedString = problemStatement;
 
-    while ((result = regex.exec(problemStatement)) !== null) {
+    while ((result = regex.exec(parsedString)) !== null) {
       if (result[1]) {
         parsedString = parsedString.replace(result[0], `\\[${result[1]}\\]`);
       } else if (result[2]) {

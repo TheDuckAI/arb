@@ -141,45 +141,53 @@ const Arb: React.FC = () => {
             </Text>
 
             <Flex mt={4} wrap="wrap" justify="center">
-              <Button
-                leftIcon={<FaFilePdf />}
-                colorScheme="teal"
-                variant="solid"
+              <Link
+                href="https://arxiv.org/pdf/2307.13692.pdf"
                 w={["100%", "auto"]}
                 mb={4}
                 mr={[0, 4]}
               >
-                Paper
-              </Button>
-              <Button
-                leftIcon={<AiFillFile />}
-                colorScheme="teal"
-                variant="solid"
+                <Button
+                  leftIcon={<FaFilePdf />}
+                  colorScheme="teal"
+                  variant="solid"
+                >
+                  Paper
+                </Button>
+              </Link>
+              <Link
+                href="https://arxiv.org/abs/2307.13692"
                 w={["100%", "auto"]}
                 mb={4}
                 mr={[0, 4]}
               >
-                arXiv
-              </Button>
-              <Link href="https://github.com/TheDuckAI/arb">
+                <Button
+                  leftIcon={<AiFillFile />}
+                  colorScheme="teal"
+                  variant="solid"
+                >
+                  arXiv
+                </Button>
+              </Link>
+              <Link
+                href="https://github.com/TheDuckAI/arb"
+                w={["100%", "auto"]}
+                mb={4}
+                mr={[0, 4]}
+              >
                 <Button
                   leftIcon={<FaGithub />}
                   colorScheme="teal"
                   variant="solid"
-                  w={["100%", "auto"]}
-                  mb={4}
-                  mr={[0, 4]}
                 >
                   Code
                 </Button>
               </Link>
-              <Link href="/home">
+              <Link href="/home" w={["100%", "auto"]} mb={4}>
                 <Button
                   leftIcon={<FaImages />}
                   colorScheme="teal"
                   variant="solid"
-                  w={["100%", "auto"]}
-                  mb={4}
                 >
                   Interface
                 </Button>
