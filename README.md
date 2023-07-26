@@ -21,6 +21,7 @@ This repository hosts a problem sampler as well as the dedicated API for our dat
 ### API Usage
 
 Endpoint url: https://arb.duckai.org/api/lib/
-The documentation for the complete REST API of the ARB dataset is [here](https://app.swaggerhub.com/apis-docs/arb-dataset/arb-api/1.0.5)
+<br/>
+The documentation for the complete REST API of the ARB dataset is [here](https://app.swaggerhub.com/apis-docs/arb-dataset/arb-api/1.0.5).
 
 Copyright © 2023 [DuckAI](https://github.com/TheDuckAI)
