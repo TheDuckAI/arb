@@ -70,7 +70,7 @@ async function getAllPhysicsImgProblems() {
 
 async function findMathProblemById(id) {
   return findOneByMongoId(mathNumericalModel, id, {
-    "Problem Statement": 1,
+    Problem_Statement: 1,
     Solution: 1,
     "Final Answer": 1,
   });
@@ -78,7 +78,7 @@ async function findMathProblemById(id) {
 
 async function findPhysicsProblemById(id) {
   return findOneByMongoId(physicsNumericalModel, id, {
-    "Problem Statement": 1,
+    Problem_Statement: 1,
     Solution: 1,
     "Final Answer": 1,
   });
@@ -86,7 +86,7 @@ async function findPhysicsProblemById(id) {
 
 async function findPhysicsImgProblemById(id) {
   return findOneByMongoId(physicsImgModel, id, {
-    "Problem Statement": 1,
+    Problem_Statement: 1,
     Images: 1,
     Solution: 1,
     "Final Answer": 1,

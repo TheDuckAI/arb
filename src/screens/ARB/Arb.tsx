@@ -16,6 +16,7 @@ import {
   FaArrowCircleRight,
   FaFilePdf,
   FaGithub,
+  FaBook,
   FaImages,
 } from "react-icons/fa";
 import { AiFillFile } from "react-icons/ai";
@@ -143,11 +144,12 @@ const Arb: React.FC = () => {
             <Flex mt={4} wrap="wrap" justify="center">
               <Link
                 href="https://arxiv.org/pdf/2307.13692.pdf"
-                w={["100%", "auto"]}
+                w={["50%", "auto"]}
                 mb={4}
                 mr={[0, 4]}
               >
                 <Button
+                  w={"140px"}
                   leftIcon={<FaFilePdf />}
                   colorScheme="teal"
                   variant="solid"
@@ -157,11 +159,12 @@ const Arb: React.FC = () => {
               </Link>
               <Link
                 href="https://arxiv.org/abs/2307.13692"
-                w={["100%", "auto"]}
+                w={["50%", "auto"]}
                 mb={4}
                 mr={[0, 4]}
               >
                 <Button
+                  w={"140px"}
                   leftIcon={<AiFillFile />}
                   colorScheme="teal"
                   variant="solid"
@@ -171,11 +174,12 @@ const Arb: React.FC = () => {
               </Link>
               <Link
                 href="https://github.com/TheDuckAI/arb"
-                w={["100%", "auto"]}
+                w={["33.33%", "auto"]}
                 mb={4}
                 mr={[0, 4]}
               >
                 <Button
+                  w={"140px"}
                   leftIcon={<FaGithub />}
                   colorScheme="teal"
                   variant="solid"
@@ -183,13 +187,29 @@ const Arb: React.FC = () => {
                   Code
                 </Button>
               </Link>
-              <Link href="/home" w={["100%", "auto"]} mb={4}>
+              <Link href="/home" w={["33.33%", "auto"]} mb={4}>
                 <Button
+                  w={"140px"}
                   leftIcon={<FaImages />}
                   colorScheme="teal"
                   variant="solid"
                 >
                   Interface
+                </Button>
+              </Link>
+              <Link
+                href="https://app.swaggerhub.com/apis-docs/arb-dataset/arb-api/1.0.5"
+                w={["33.33%", "auto"]}
+                mb={4}
+                mr={[0, 4]}
+              >
+                <Button
+                  w={"140px"}
+                  leftIcon={<FaBook />}
+                  colorScheme="teal"
+                  variant="solid"
+                >
+                  API
                 </Button>
               </Link>
             </Flex>
