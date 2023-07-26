@@ -6,9 +6,11 @@
 </h1>
 
 <p align="center">
-    <img src="https://img.shields.io/github/checks-status/TheDuckAI/arb/main?style=flat-square">
-    <img src="https://img.shields.io/badge/License-GPLv3-blue.svg">
+    <a href="https://arxiv.org/abs/2307.13692"><img src="https://img.shields.io/badge/arXiv-2307.13692-red.svg" alt="arXiv"></a>
+    <img src="https://github.com/TheDuckAI/arb/actions/workflows/lint.yml/badge.svg" alt="Lint Status">
+    <img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License">
 </p>
+
 
 <h5 align="center">A <a href="https://duckai.org/" target="_blank">DuckAI</a> project in collaboration with the Georgia Institute of Technology, ETH Zürich, Nomos AI, Stanford University Center for Legal Informatics, and the Mila - Quebec AI Institute</h4>
 
