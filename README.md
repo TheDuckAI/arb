@@ -7,8 +7,8 @@
 
 <p align="center">
     <a href="https://arxiv.org/abs/2307.13692"><img src="https://img.shields.io/badge/arXiv-2307.13692-red.svg" alt="arXiv"></a>
-    <img src="https://github.com/TheDuckAI/arb/actions/workflows/lint.yml/badge.svg" alt="Lint Status">
-    <img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License">
+    <img src="https://github.com/TheDuckAI/arb/actions/workflows/lint.yml/badge.svg" alt="Lint Status">   
+    <img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square">
 </p>
 
 
