@@ -1,3 +1,4 @@
+import { m } from "framer-motion";
 import mongoose from "mongoose";
 
 const numericalProblemSchema = new mongoose.Schema({
@@ -58,3 +59,15 @@ export const physicsImgModel =
     numericalProblemSchema,
     "physics_numerical_images"
   );
+
+export const mathTestModel = 
+    mongoose.models.mathTestProblem ||
+    mongoose.model("mathTestProblem", numericalProblemSchema, "math_test");
+
+export const physicsTestModel =
+    mongoose.models.physicsTestProblem ||
+    mongoose.model("physicsTestProblem", numericalProblemSchema, "physics_test");
+
+export const physicsTestImgModel =
+    mongoose.models.physicsTestImgProblem ||
+    mongoose.model("physicsTestImgModel", numericalProblemSchema, "physics_test_img");

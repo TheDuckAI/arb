@@ -2,6 +2,9 @@ import {
   mathNumericalModel,
   physicsNumericalModel,
   physicsImgModel,
+  mathTestModel,
+  physicsTestImgModel,
+  physicsTestModel
 } from "../models/numerical_problem";
 
 import { ObjectId } from "mongodb";

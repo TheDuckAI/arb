@@ -43,5 +43,6 @@ const lawProblemSchema = new mongoose.Schema({
   },
 });
 
-export default mongoose.models.lawProblem ||
-  mongoose.model("lawProblem", lawProblemSchema, "law");
+
+export const lawProblemModel = mongoose.models.lawProblem || mongoose.model("lawProblem", lawProblemSchema, "law");
+export const lawProblemTestModel = mongoose.models.lawProblemTest || mongoose.model("lawProblemTest", lawProblemSchema, "lawTest");

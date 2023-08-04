@@ -58,3 +58,15 @@ export const mcatScienceImgModel =
 export const mcatScienceValModel =
   mongoose.models.mcatScienceVal ||
   mongoose.model("mcatScienceVal", mcatSchema, "mcat_science_val");
+
+export const mcatReadingTestModel =
+  mongoose.models.mcatReadingTest ||
+  mongoose.model("mcatReadingTest", mcatSchema, "mcat_reading_test");
+
+export const mcatScienceTestModel = 
+  mongoose.models.mcatScienceTest ||
+  mongoose.model("mcatScienceTest", mcatSchema, "mcat_science_test");
+
+export const mcatScienceImgTestModel =
+  mongoose.models.mcatScienceImgTest ||
+  mongoose.models("mcatScienceImgTest", mcatSchema, "mcat_science_images_test");
