@@ -2,6 +2,9 @@ import {
   mcatReadingValModel,
   mcatScienceValModel,
   mcatScienceImgModel,
+  mcatReadingTestModel,
+  mcatScienceImgTestModel,
+  mcatScienceTestModel
 } from "../models/mcat_problem";
 
 import _ from "lodash";
@@ -73,6 +76,45 @@ async function getAllScienceImagesProblems() {
   );
 }
 
+
+async function getAllScienceImagesTestProblems() {
+  return await mcatScienceImgTestModel.find(
+    {},
+    {
+      "Problem Statement": 1,
+      Images: 1,
+      "Answer Candidates": 1,
+      Solution: 1,
+      "Final Answer": 1,
+    }
+  );
+}
+
+
+async function getAllScienceTestProblems() {
+  return await mcatScienceTestModel.find(
+    {},
+    {
+      "Problem Statement": 1,
+      "Answer Candidates": 1,
+      Solution: 1,
+      "Final Answer": 1,
+    }
+  );
+}
+
+async function getAllReadingTestProblems() {
+  return await mcatReadingTestModel.find(
+    {},
+    {
+      "Problem Statement": 1,
+      "Answer Candidates": 1,
+      Solution: 1,
+      "Final Answer": 1,
+    }
+  );
+}
+
 async function findReadingProblemById(id) {
   return await findOneById(mcatReadingValModel, id, {
     "Problem Statement": 1,
@@ -82,8 +124,27 @@ async function findReadingProblemById(id) {
   });
 }
 
+async function findReadingTestProblemById(id) {
+  return await findOneById(mcatReadingTestModel, id, {
+    "Problem Statement": 1,
+    "Answer Candidates": 1,
+    Solution: 1,
+    "Final Answer": 1,
+  });
+}
+
 async function findScienceProblemById(id) {
   return await findOneById(mcatScienceValModel, id, {
+    "Problem Statement": 1,
+    "Answer Candidates": 1,
+    Solution: 1,
+    "Final Answer": 1,
+  });
+}
+
+
+async function findScienceTestProblemById(id) {
+  return await findOneById(mcatScienceTestModel, id, {
     "Problem Statement": 1,
     "Answer Candidates": 1,
     Solution: 1,
@@ -101,6 +162,17 @@ async function findScienceImagesProblemById(id) {
   });
 }
 
+
+async function findScienceImagesTestProblemById(id) {
+  return await findOneById(mcatScienceImgTestModel, id, {
+    "Problem Statement": 1,
+    Images: 1,
+    "Answer Candidates": 1,
+    Solution: 1,
+    "Final Answer": 1,
+  });
+}
+
 export {
   getRandomReadingProblem,
   getRandomScienceProblem,
@@ -108,7 +180,13 @@ export {
   getAllReadingProblems,
   getAllScienceProblems,
   getAllScienceImagesProblems,
+  getAllReadingTestProblems,
+  getAllScienceTestProblems,
+  getAllScienceImagesTestProblems,
   findReadingProblemById,
   findScienceProblemById,
   findScienceImagesProblemById,
+  findReadingTestProblemById,
+  findScienceTestProblemById,
+  findScienceImagesTestProblemById
 };

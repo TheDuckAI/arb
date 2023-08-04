@@ -48,8 +48,30 @@ async function getAllMathProblems() {
   );
 }
 
+async function getAllMathTestProblems() {
+  return await mathTestModel.find(
+    {},
+    {
+      "Problem Statement": 1,
+      Solution: 1,
+      "Final Answer": 1,
+    }
+  );
+}
+
 async function getAllPhysicsProblems() {
   return await physicsNumericalModel.find(
+    {},
+    {
+      "Problem Statement": 1,
+      Solution: 1,
+      "Final Answer": 1,
+    }
+  );
+}
+
+async function getAllPhysicsTestProblems() {
+  return await physicsTestModel.find(
     {},
     {
       "Problem Statement": 1,
@@ -71,6 +93,18 @@ async function getAllPhysicsImgProblems() {
   );
 }
 
+async function getAllPhysicsImgTestProblems() {
+  return await physicsTestImgModel.find(
+    {},
+    {
+      "Problem Statement": 1,
+      Images: 1,
+      Solution: 1,
+      "Final Answer": 1,
+    }
+  );
+}
+
 async function findMathProblemById(id) {
   return findOneByMongoId(mathNumericalModel, id, {
     Problem_Statement: 1,
@@ -79,8 +113,24 @@ async function findMathProblemById(id) {
   });
 }
 
+async function findMathTestProblemById(id) {
+  return findOneByMongoId(mathTestModel, id, {
+    Problem_Statement: 1,
+    Solution: 1,
+    "Final Answer": 1,
+  });
+}
+
 async function findPhysicsProblemById(id) {
   return findOneByMongoId(physicsNumericalModel, id, {
+    Problem_Statement: 1,
+    Solution: 1,
+    "Final Answer": 1,
+  });
+}
+
+async function findPhysicsTestProblemById(id) {
+  return findOneByMongoId(physicsTestModel, id, {
     Problem_Statement: 1,
     Solution: 1,
     "Final Answer": 1,
@@ -96,6 +146,15 @@ async function findPhysicsImgProblemById(id) {
   });
 }
 
+async function findPhysicsImgTestProblemById(id) {
+  return findOneByMongoId(physicsTestImgModel, id , {
+    Problem_Statement: 1,
+    Images: 1,
+    Solution: 1,
+    "Final Answer": 1,
+  });
+}
+
 export {
   getRandomMathProblem,
   getRandomPhysicsImgProblem,
@@ -103,7 +162,13 @@ export {
   getAllMathProblems,
   getAllPhysicsProblems,
   getAllPhysicsImgProblems,
+  getAllMathTestProblems,
+  getAllPhysicsImgTestProblems,
+  getAllPhysicsTestProblems,
   findMathProblemById,
   findPhysicsProblemById,
   findPhysicsImgProblemById,
+  findMathTestProblemById,
+  findPhysicsImgTestProblemById,
+  findPhysicsTestProblemById
 };

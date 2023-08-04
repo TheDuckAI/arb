@@ -1,4 +1,4 @@
-import lawProblem from "../models/law_problem";
+import {lawProblemModel, lawProblemTestModel} from "../models/law_problem";
 
 import { ObjectId } from "mongodb";
 
@@ -10,12 +10,12 @@ async function findOneById(model, id, projection) {
 }
 
 async function getRandomLawProblem() {
-  const randomDocument = await lawProblem.aggregate([{ $sample: { size: 1 } }]);
+  const randomDocument = await lawProblemModel.aggregate([{ $sample: { size: 1 } }]);
   return randomDocument[0];
 }
 
 async function getAllLawProblems() {
-  return await lawProblem.find(
+  return await lawProblemModel.find(
     {},
     {
       "Problem Statement": 1,
@@ -25,12 +25,31 @@ async function getAllLawProblems() {
   );
 }
 
+async function getAllLawTestProblems() {
+  return await lawProblemTestModel.find(
+    {},
+    {
+      "Problem Statement": 1,
+      "Answer Candidates": 1,
+      "Final Answer": 1,
+    }
+  )
+}
+
 async function findLawProblemById(id) {
-  return await findOneById(lawProblem, id, {
+  return await findOneById(lawProblemModel, id, {
     "Problem Statement": 1,
     "Answer Candidates": 1,
     "Final Answer": 1,
   });
 }
 
-export { findLawProblemById, getRandomLawProblem, getAllLawProblems };
+async function findLawTestProblemByID(id) {
+  return await findOneById(lawProblemTestModel, id, {
+    "Problem Statement": 1,
+    "Answer Candidates": 1,
+    "Final Answer": 1,
+  });
+}
+
+export { findLawProblemById, getRandomLawProblem, getAllLawProblems, getAllLawTestProblems, findLawTestProblemByID };
