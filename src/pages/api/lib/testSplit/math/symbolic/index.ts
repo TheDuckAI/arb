@@ -1,9 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { getAllPhysicsImgTestProblems } from "../../../../../../server/mongodb/actions/numericalProblem";
+import { getAllMathSymbolicProblems } from "../../../../../../server/mongodb/actions/numericalProblem";
 import requestWrapper from "../../../../../../server/utils/middleware";
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const allProblems = await getAllPhysicsImgTestProblems();
+  const allProblems = await getAllMathSymbolicProblems();
 
   const formattedResponse = JSON.stringify(allProblems, null, 2);
 

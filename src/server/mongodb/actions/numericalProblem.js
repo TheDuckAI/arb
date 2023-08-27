@@ -125,13 +125,23 @@ async function findMathProblemById(id) {
   });
 }
 
-async function findMathTestProblemById(id) {
-  return findOneByMongoId(mathTestModel, id, {
+async function findMathProofProblemById(id) {
+  return findOneByMongoId(mathProofsModel, id, {
     Problem_Statement: 1,
     Solution: 1,
     "Final Answer": 1,
   });
 }
+
+
+async function findMathSymbolicProblemById(id) {
+  return findOneByMongoId(mathSymbolicModel, id, {
+    Problem_Statement: 1,
+    Solution: 1,
+    "Final Answer": 1,
+  });
+}
+
 
 async function findPhysicsProblemById(id) {
   return findOneByMongoId(physicsNumericalModel, id, {
@@ -172,6 +182,8 @@ export {
   getRandomPhysicsImgProblem,
   getRandomPhysicsProblem,
   getAllMathProblems,
+  getAllMathProofProblems,
+  getAllMathSymbolicProblems,
   getAllPhysicsProblems,
   getAllPhysicsImgProblems,
   getAllPhysicsImgTestProblems,
@@ -179,7 +191,8 @@ export {
   findMathProblemById,
   findPhysicsProblemById,
   findPhysicsImgProblemById,
-  findMathTestProblemById,
+  findMathProofProblemById,
+  findMathSymbolicProblemById,
   findPhysicsImgTestProblemById,
   findPhysicsTestProblemById
 };

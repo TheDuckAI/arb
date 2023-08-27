@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { findScienceImagesTestProblemById } from "../../../../../../server/mongodb/actions/mcatProblem";
+import { findScienceTestProblemById } from "../../../../../../server/mongodb/actions/mcatProblem";
 import requestWrapper from "../../../../../../server/utils/middleware";
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -8,7 +8,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     return;
   }
   const { id } = req.query;
-  const problem = await findScienceImagesTestProblemById(id);
+  const problem = await findScienceTestProblemById(id);
 
   const formattedResponse = JSON.stringify(problem, null, 2);
 

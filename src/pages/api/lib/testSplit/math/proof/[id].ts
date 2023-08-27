@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { findMathTestProblemById } from "../../../../../../server/mongodb/actions/numericalProblem";
+import { findMathProofProblemById } from "../../../../../../server/mongodb/actions/numericalProblem";
 import requestWrapper from "../../../../../../server/utils/middleware";
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -8,7 +8,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     return;
   }
   const { id } = req.query;
-  const problem = await findMathTestProblemById(id);
+  const problem = await findMathProofProblemById(id);
 
   const formattedResponse = JSON.stringify(problem, null, 2);
 
