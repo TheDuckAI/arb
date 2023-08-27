@@ -62,7 +62,7 @@ const Documentation: React.FC = () => {
           API Calls
         </Heading>
         <Text mb={4}>
-          We have three different types of API calls for retrieving problems. See <Link href="https://app.swaggerhub.com/apis-docs/arb-dataset/arb-api/1.0.5" color="teal.500">here</Link> and select "ARB API server" as the mock server to see what the outputs look like.
+          We have three different types of API calls for retrieving problems. See <Link href="https://app.swaggerhub.com/apis-docs/arb-dataset/arb-api/1.0.5" color="teal.500">here</Link> and select ARB API server as the mock server to see what the outputs look like.
         </Text>
 
         <Heading as="h3" size="lg" mb={4}>
@@ -73,17 +73,15 @@ const Documentation: React.FC = () => {
         </Text>
         <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
           <Code>
-            https://arb.duckai.org/api/lib/{`{category}`}
+            https://arb.duckai.org/api/lib/{"{category}"}
           </Code>
         </Box>
-
-        {/* For each example */}
         <Text fontWeight="bold" mb={2}>Math:</Text>
         <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
           <Code>
             import requests
             <br />
-            response = requests.get("https://arb.duckai.org/api/lib/math")
+            response = requests.get(&quot;https://arb.duckai.org/api/lib/math&quot;)
             <br />
             data = response.json()
           </Code>
@@ -94,7 +92,7 @@ const Documentation: React.FC = () => {
           <Code>
             import requests
             <br />
-            response = requests.get("https://arb.duckai.org/api/lib/law")
+            response = requests.get(&quot;https://arb.duckai.org/api/lib/law&quot;)
             <br />
             data = response.json()
           </Code>
@@ -105,7 +103,7 @@ const Documentation: React.FC = () => {
           <Code>
             import requests
             <br />
-            response = requests.get("https://arb.duckai.org/api/lib/mcatReading")
+            response = requests.get(&quot;https://arb.duckai.org/api/lib/mcatReading&quot;)
             <br />
             data = response.json()
           </Code>
@@ -116,14 +114,14 @@ const Documentation: React.FC = () => {
         </Heading>
         <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
           <Code>
-            https://arb.duckai.org/api/lib/{`{category}`}/{`{id}`}
+            https://arb.duckai.org/api/lib/{"{category}"}/{"{id}"}
           </Code>
         </Box>
         <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
           <Code>
             import requests
             <br />
-            response = requests.get("https://arb.duckai.org/api/lib/math/1234")
+            response = requests.get(&quot;https://arb.duckai.org/api/lib/math/1234&quot;)
             <br />
             problem = response.json()
           </Code>
@@ -134,14 +132,14 @@ const Documentation: React.FC = () => {
         </Heading>
         <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
           <Code>
-            https://arb.duckai.org/api/lib/{`{category}`}/{`{variation}`}
+            https://arb.duckai.org/api/lib/{"{category}"}/{"{variation}"}
           </Code>
         </Box>
         <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
           <Code>
             import requests
             <br />
-            response = requests.get("https://arb.duckai.org/api/lib/physics_numerical/img")
+            response = requests.get(&quot;https://arb.duckai.org/api/lib/physics_numerical/img&quot;)
             <br />
             variation_data = response.json()
           </Code>
