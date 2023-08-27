@@ -1,4 +1,4 @@
-import {lawProblemModel, lawProblemTestModel} from "../models/law_problem";
+import {lawProblemModel} from "../models/law_problem";
 
 import { ObjectId } from "mongodb";
 
@@ -25,16 +25,6 @@ async function getAllLawProblems() {
   );
 }
 
-async function getAllLawTestProblems() {
-  return await lawProblemTestModel.find(
-    {},
-    {
-      "Problem Statement": 1,
-      "Answer Candidates": 1,
-      "Final Answer": 1,
-    }
-  )
-}
 
 async function findLawProblemById(id) {
   return await findOneById(lawProblemModel, id, {
@@ -44,12 +34,5 @@ async function findLawProblemById(id) {
   });
 }
 
-async function findLawTestProblemByID(id) {
-  return await findOneById(lawProblemTestModel, id, {
-    "Problem Statement": 1,
-    "Answer Candidates": 1,
-    "Final Answer": 1,
-  });
-}
 
-export { findLawProblemById, getRandomLawProblem, getAllLawProblems, getAllLawTestProblems, findLawTestProblemByID };
+export { findLawProblemById, getRandomLawProblem, getAllLawProblems };

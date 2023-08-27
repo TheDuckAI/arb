@@ -2,7 +2,8 @@ import {
   mathNumericalModel,
   physicsNumericalModel,
   physicsImgModel,
-  mathTestModel,
+  mathProofsModel,
+  mathSymbolicModel,
   physicsTestImgModel,
   physicsTestModel
 } from "../models/numerical_problem";
@@ -48,8 +49,19 @@ async function getAllMathProblems() {
   );
 }
 
-async function getAllMathTestProblems() {
-  return await mathTestModel.find(
+async function getAllMathProofProblems() {
+  return await mathProofsModel.find(
+    {},
+    {
+      "Problem Statement": 1,
+      Solution: 1,
+      "Final Answer": 1,
+    }
+  );
+}
+
+async function getAllMathSymbolicProblems() {
+  return await mathSymbolicModel.find(
     {},
     {
       "Problem Statement": 1,
@@ -162,7 +174,6 @@ export {
   getAllMathProblems,
   getAllPhysicsProblems,
   getAllPhysicsImgProblems,
-  getAllMathTestProblems,
   getAllPhysicsImgTestProblems,
   getAllPhysicsTestProblems,
   findMathProblemById,

@@ -215,7 +215,7 @@ const Arb: React.FC = () => {
               </Link>
 
               <Link
-                href="https://app.swaggerhub.com/apis-docs/arb-dataset/arb-api/1.0.5"
+                href="/documentation"
                 w={["auto", "calc(20% - 16px)"]}
                 mb={4}
                 display="flex"

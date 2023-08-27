@@ -60,9 +60,13 @@ export const physicsImgModel =
     "physics_numerical_images"
   );
 
-export const mathTestModel = 
-    mongoose.models.mathTestProblem ||
-    mongoose.model("mathTestProblem", numericalProblemSchema, "math_test");
+export const mathProofsModel = 
+    mongoose.models.mathProofsProblem ||
+    mongoose.model("mathProofsProblem", numericalProblemSchema, "mathProofs");
+
+export const mathSymbolicModel = 
+    mongoose.models.mathSymbolicModel ||
+    mongoose.model("mathSymbolicModel", numericalProblemSchema, "mathSymbolic")
 
 export const physicsTestModel =
     mongoose.models.physicsTestProblem ||

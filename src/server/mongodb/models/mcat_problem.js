@@ -69,4 +69,4 @@ export const mcatScienceTestModel =
 
 export const mcatScienceImgTestModel =
   mongoose.models.mcatScienceImgTest ||
-  mongoose.models("mcatScienceImgTest", mcatSchema, "mcat_science_images_test");
+  mongoose.model("mcatScienceImgTest", mcatSchema, "mcat_science_images_test");
