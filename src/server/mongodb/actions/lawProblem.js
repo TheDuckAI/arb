@@ -19,8 +19,10 @@ async function getAllLawProblems() {
     {},
     {
       "Problem Statement": 1,
+      "Problem Number": 1,
       "Answer Candidates": 1,
       "Final Answer": 1,
+    "Problem Type": 1
     }
   );
 }

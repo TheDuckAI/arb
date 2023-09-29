@@ -40,13 +40,17 @@ async function getRandomScienceImagesProblem() {
 }
 
 async function getAllReadingProblems() {
-  return await mcatReadingValModel.find({}).find(
+  return await mcatReadingValModel.find(
     {},
     {
       "Problem Statement": 1,
       "Answer Candidates": 1,
+      "Problem Number": 1,
+      "Topic": 1,
       Solution: 1,
       "Final Answer": 1,
+    "Subject": 1,
+    "Problem Type": 1,
     }
   );
 }
@@ -57,8 +61,12 @@ async function getAllScienceProblems() {
     {
       "Problem Statement": 1,
       "Answer Candidates": 1,
+      "Problem Number": 1,
+      "Topic": 1,
       Solution: 1,
       "Final Answer": 1,
+    "Subject": 1,
+    "Problem Type": 1,
     }
   );
 }
@@ -68,10 +76,14 @@ async function getAllScienceImagesProblems() {
     {},
     {
       "Problem Statement": 1,
-      Images: 1,
+      "Images": 1,
       "Answer Candidates": 1,
+      "Problem Number": 1,
+      "Topic": 1,
       Solution: 1,
       "Final Answer": 1,
+    "Subject": 1,
+    "Problem Type": 1,
     }
   );
 }
@@ -82,10 +94,14 @@ async function getAllScienceImagesTestProblems() {
     {},
     {
       "Problem Statement": 1,
-      Images: 1,
+      "Images": 1,
       "Answer Candidates": 1,
+      "Problem Number": 1,
+      "Topic": 1,
       Solution: 1,
       "Final Answer": 1,
+    "Subject": 1,
+    "Problem Type": 1,
     }
   );
 }
@@ -97,8 +113,12 @@ async function getAllScienceTestProblems() {
     {
       "Problem Statement": 1,
       "Answer Candidates": 1,
+      "Problem Number": 1,
+      "Topic": 1,
       Solution: 1,
       "Final Answer": 1,
+    "Subject": 1,
+    "Problem Type": 1,
     }
   );
 }
@@ -109,8 +129,12 @@ async function getAllReadingTestProblems() {
     {
       "Problem Statement": 1,
       "Answer Candidates": 1,
+      "Problem Number": 1,
+      "Topic": 1,
       Solution: 1,
       "Final Answer": 1,
+    "Subject": 1,
+    "Problem Type": 1,
     }
   );
 }
