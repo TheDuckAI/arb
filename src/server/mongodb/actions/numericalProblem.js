@@ -42,7 +42,7 @@ async function getAllMathProblems() {
   return await mathNumericalModel.find(
     {},
     {
-      "Problem Statement": 1,
+      "Problem_Statement": 1,
       Solution: 1,
       "Final Answer": 1,
     }
@@ -75,7 +75,7 @@ async function getAllPhysicsProblems() {
   return await physicsNumericalModel.find(
     {},
     {
-      "Problem Statement": 1,
+      "Problem_Statement": 1,
       Solution: 1,
       "Final Answer": 1,
     }

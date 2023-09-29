@@ -60,7 +60,7 @@ export const physicsImgModel =
   );
 
 export const mathProofsModel = 
-    mongoose.models.mathProofsModel ||
+    mongoose.models.mathProofsProblem ||
     mongoose.model("mathProofsProblem", numericalProblemSchema, "mathProofs");
 
 export const mathSymbolicModel = 
