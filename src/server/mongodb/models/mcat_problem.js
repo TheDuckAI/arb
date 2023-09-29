@@ -63,7 +63,7 @@ export const mcatReadingTestModel =
   mongoose.models.mcatReadingTest ||
   mongoose.model("mcatReadingTest", mcatSchema, "mcat_reading_test");
 
-export const mcatScienceTestModel = 
+export const mcatScienceTestModel =
   mongoose.models.mcatScienceTest ||
   mongoose.model("mcatScienceTest", mcatSchema, "mcat_science_test");
 

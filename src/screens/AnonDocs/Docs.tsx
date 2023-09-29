@@ -96,6 +96,7 @@ const Documentation: React.FC = () => {
             <br />
             response =
             requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/testSplit/math/symbolic&quot;)
+
             <br />
             data = response.json()
           </Code>
@@ -110,6 +111,7 @@ const Documentation: React.FC = () => {
             <br />
             response =
             requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/testSplit/math/proof&quot;)
+
             <br />
             data = response.json()
           </Code>
@@ -165,7 +167,7 @@ const Documentation: React.FC = () => {
             import requests
             <br />
             response =
-            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/mcatReading&quot;)
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/mcatReading&quot;
             <br />
             data = response.json()
           </Code>
@@ -206,7 +208,7 @@ const Documentation: React.FC = () => {
             import requests
             <br />
             response =
-            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/physics_numerical/img&quot;)
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/physics_numerical/img&quo
             <br />
             variation_data = response.json()
           </Code>
@@ -220,6 +222,7 @@ const Documentation: React.FC = () => {
             <br />
             response =
             requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/testSplit/physics/img&quot;)
+
             <br />
             variation_data = response.json()
           </Code>
