@@ -5,7 +5,7 @@ import {
   mathProofsModel,
   mathSymbolicModel,
   physicsTestImgModel,
-  physicsTestModel
+  physicsTestModel,
 } from "../models/numerical_problem";
 
 import { ObjectId } from "mongodb";
@@ -42,9 +42,15 @@ async function getAllMathProblems() {
   return await mathNumericalModel.find(
     {},
     {
-      "Problem_Statement": 1,
+      _id: 1,
+      Problem_Statement: 1,
+      Topic: 1,
+      "Output Format Instructions": 1,
       Solution: 1,
       "Final Answer": 1,
+      "Problem Type": 1,
+      rubric: 1,
+      rubric_template: 1,
     }
   );
 }
@@ -53,9 +59,15 @@ async function getAllMathProofProblems() {
   return await mathProofsModel.find(
     {},
     {
-      "Problem Statement": 1,
+      _id: 1,
+      Problem_Statement: 1,
+      Topic: 1,
+      "Output Format Instructions": 1,
       Solution: 1,
       "Final Answer": 1,
+      "Problem Type": 1,
+      rubric: 1,
+      rubric_template: 1,
     }
   );
 }
@@ -64,9 +76,15 @@ async function getAllMathSymbolicProblems() {
   return await mathSymbolicModel.find(
     {},
     {
-      "Problem Statement": 1,
+      _id: 1,
+      Problem_Statement: 1,
+      Topic: 1,
+      "Output Format Instructions": 1,
       Solution: 1,
       "Final Answer": 1,
+      "Problem Type": 1,
+      rubric: 1,
+      rubric_template: 1,
     }
   );
 }
@@ -75,9 +93,15 @@ async function getAllPhysicsProblems() {
   return await physicsNumericalModel.find(
     {},
     {
-      "Problem_Statement": 1,
+      _id: 1,
+      Problem_Statement: 1,
+      Topic: 1,
+      "Output Format Instructions": 1,
       Solution: 1,
       "Final Answer": 1,
+      "Problem Type": 1,
+      rubric: 1,
+      rubric_template: 1,
     }
   );
 }
@@ -86,9 +110,15 @@ async function getAllPhysicsTestProblems() {
   return await physicsTestModel.find(
     {},
     {
-      "Problem Statement": 1,
+      _id: 1,
+      Problem_Statement: 1,
+      Topic: 1,
+      "Output Format Instructions": 1,
       Solution: 1,
       "Final Answer": 1,
+      "Problem Type": 1,
+      rubric: 1,
+      rubric_template: 1,
     }
   );
 }
@@ -97,10 +127,16 @@ async function getAllPhysicsImgProblems() {
   return await physicsImgModel.find(
     {},
     {
-      "Problem Statement": 1,
+      _id: 1,
+      Problem_Statement: 1,
+      Topic: 1,
       Images: 1,
+      "Output Format Instructions": 1,
       Solution: 1,
       "Final Answer": 1,
+      "Problem Type": 1,
+      rubric: 1,
+      rubric_template: 1,
     }
   );
 }
@@ -109,10 +145,16 @@ async function getAllPhysicsImgTestProblems() {
   return await physicsTestImgModel.find(
     {},
     {
-      "Problem Statement": 1,
+      _id: 1,
+      Problem_Statement: 1,
+      Topic: 1,
       Images: 1,
+      "Output Format Instructions": 1,
       Solution: 1,
       "Final Answer": 1,
+      "Problem Type": 1,
+      rubric: 1,
+      rubric_template: 1,
     }
   );
 }
@@ -133,7 +175,6 @@ async function findMathProofProblemById(id) {
   });
 }
 
-
 async function findMathSymbolicProblemById(id) {
   return findOneByMongoId(mathSymbolicModel, id, {
     Problem_Statement: 1,
@@ -141,7 +182,6 @@ async function findMathSymbolicProblemById(id) {
     "Final Answer": 1,
   });
 }
-
 
 async function findPhysicsProblemById(id) {
   return findOneByMongoId(physicsNumericalModel, id, {
@@ -169,7 +209,7 @@ async function findPhysicsImgProblemById(id) {
 }
 
 async function findPhysicsImgTestProblemById(id) {
-  return findOneByMongoId(physicsTestImgModel, id , {
+  return findOneByMongoId(physicsTestImgModel, id, {
     Problem_Statement: 1,
     Images: 1,
     Solution: 1,
@@ -194,5 +234,5 @@ export {
   findMathProofProblemById,
   findMathSymbolicProblemById,
   findPhysicsImgTestProblemById,
-  findPhysicsTestProblemById
+  findPhysicsTestProblemById,
 };

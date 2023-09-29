@@ -10,12 +10,9 @@ import {
   Icon,
   Code,
 } from "@chakra-ui/react";
-import {
-  FaArrowCircleRight
-} from "react-icons/fa";
+import { FaArrowCircleRight } from "react-icons/fa";
 
 const Documentation: React.FC = () => {
-
   return (
     <Box bg="#F9FAFC">
       <Flex
@@ -55,55 +52,74 @@ const Documentation: React.FC = () => {
           API Documentation
         </Heading>
         <Text mb={4}>
-          We provide a simple API to access the Advanced Reasoning Benchmark (ARB). The API currently supports standard HTTP GET requests.
+          We provide a simple API to access the Advanced Reasoning Benchmark
+          (ARB). The API currently supports standard HTTP GET requests.
         </Text>
 
         <Heading as="h2" size="xl" mb={6}>
           API Calls
         </Heading>
         <Text mb={4}>
-          We have three different types of API calls for retrieving problems. See <Link href="https://app.swaggerhub.com/apis-docs/arb-dataset/arb-api/1.0.5" color="teal.500">here</Link> and select ARB API server as the mock server to see what the outputs look like.
+          We have three different types of API calls for retrieving problems.
+          See{" "}
+          <Link
+            href="https://app.swaggerhub.com/apis-docs/arb-dataset/arb-api/1.0.5"
+            color="teal.500"
+          >
+            here
+          </Link>{" "}
+          and select ARB API server as the mock server to see what the outputs
+          look like.
         </Text>
 
         <Heading as="h3" size="lg" mb={4}>
           Get problem by category:
         </Heading>
         <Text mb={4}>
-          You can retrieve all the problems in a particular subject area by the following API call. Acceptable values for `category` are `law`, `math`, and `mcatReading`.
+          You can retrieve all the problems in a particular subject area by the
+          following API call. Acceptable values for `category` are `law`,
+          `math`, and `mcatReading`.
+        </Text>
+        <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
+          <Code>https://arb.duckai.org/api/lib/{"{category}"}</Code>
+        </Box>
+        <Text fontWeight="bold" mb={2}>
+          Math:
         </Text>
         <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
           <Code>
-            https://arb.duckai.org/api/lib/{"{category}"}
-          </Code>
-        </Box>
-        <Text fontWeight="bold" mb={2}>Math:</Text>
-        <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
-          <Code>
             import requests
             <br />
-            response = requests.get(&quot;https://arb.duckai.org/api/lib/math&quot;)
+            response =
+            requests.get(&quot;https://arb.duckai.org/api/lib/math&quot;)
             <br />
             data = response.json()
           </Code>
         </Box>
 
-        <Text fontWeight="bold" mb={2}>Law:</Text>
+        <Text fontWeight="bold" mb={2}>
+          Law:
+        </Text>
         <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
           <Code>
             import requests
             <br />
-            response = requests.get(&quot;https://arb.duckai.org/api/lib/law&quot;)
+            response =
+            requests.get(&quot;https://arb.duckai.org/api/lib/law&quot;)
             <br />
             data = response.json()
           </Code>
         </Box>
 
-        <Text fontWeight="bold" mb={2}>MCAT Reading:</Text>
+        <Text fontWeight="bold" mb={2}>
+          MCAT Reading:
+        </Text>
         <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
           <Code>
             import requests
             <br />
-            response = requests.get(&quot;https://arb.duckai.org/api/lib/mcatReading&quot;)
+            response =
+            requests.get(&quot;https://arb.duckai.org/api/lib/mcatReading&quot;)
             <br />
             data = response.json()
           </Code>
@@ -121,7 +137,8 @@ const Documentation: React.FC = () => {
           <Code>
             import requests
             <br />
-            response = requests.get(&quot;https://arb.duckai.org/api/lib/math/1234&quot;)
+            response =
+            requests.get(&quot;https://arb.duckai.org/api/lib/math/1234&quot;)
             <br />
             problem = response.json()
           </Code>
@@ -139,7 +156,8 @@ const Documentation: React.FC = () => {
           <Code>
             import requests
             <br />
-            response = requests.get(&quot;https://arb.duckai.org/api/lib/physics_numerical/img&quot;)
+            response =
+            requests.get(&quot;https://arb.duckai.org/api/lib/physics_numerical/img&quot;)
             <br />
             variation_data = response.json()
           </Code>
