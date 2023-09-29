@@ -11,13 +11,11 @@
     <img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square">
 </p>
 
-
 <h5 align="center">A <a href="https://duckai.org/" target="_blank">DuckAI</a> project in collaboration with the Georgia Institute of Technology, ETH Zürich, Nomos AI, Stanford University Center for Legal Informatics, and the Mila - Quebec AI Institute</h4>
 
 ### Abstract
 
 ARB is a novel benchmark dataset composed of advanced reasoning problems designed to evaluate LLMs on text comprehension and expert domain reasoning, presenting a more challenging test than prior benchmarks, featuring questions that test deeper knowledge of mathematics, physics, biology, chemistry, and law.
-
 
 ### API Usage
 

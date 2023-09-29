@@ -59,18 +59,22 @@ export const physicsImgModel =
     "physics_numerical_images"
   );
 
-export const mathProofsModel = 
-    mongoose.models.mathProofsProblem ||
-    mongoose.model("mathProofsProblem", numericalProblemSchema, "mathProofs");
+export const mathProofsModel =
+  mongoose.models.mathProofsProblem ||
+  mongoose.model("mathProofsProblem", numericalProblemSchema, "mathProofs");
 
-export const mathSymbolicModel = 
-    mongoose.models.mathSymbolicModel ||
-    mongoose.model("mathSymbolicModel", numericalProblemSchema, "mathSymbolic")
+export const mathSymbolicModel =
+  mongoose.models.mathSymbolicModel ||
+  mongoose.model("mathSymbolicModel", numericalProblemSchema, "mathSymbolic");
 
 export const physicsTestModel =
-    mongoose.models.physicsTestProblem ||
-    mongoose.model("physicsTestProblem", numericalProblemSchema, "physics_test");
+  mongoose.models.physicsTestProblem ||
+  mongoose.model("physicsTestProblem", numericalProblemSchema, "physics_test");
 
 export const physicsTestImgModel =
-    mongoose.models.physicsTestImgProblem ||
-    mongoose.model("physicsTestImgProblem", numericalProblemSchema, "physics_test_img");
+  mongoose.models.physicsTestImgProblem ||
+  mongoose.model(
+    "physicsTestImgProblem",
+    numericalProblemSchema,
+    "physics_test_img"
+  );
