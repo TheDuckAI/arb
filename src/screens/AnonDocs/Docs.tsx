@@ -31,20 +31,9 @@ const Documentation: React.FC = () => {
           flexGrow={1}
           textAlign={{ base: "center", md: "left" }}
         >
-
-            <Heading fontSize="3xl" color="black" mr={2}>
-              Advanced Reasoning Benchmark
-            </Heading>
-        </Box>
-        <Box flexBasis={{ base: "100%", md: "auto" }}>
-          <Flex align="center">
-            <Heading fontSize="2s" color="white" mr={2}>
-              Try out our interface!
-            </Heading>
-            <Link href="/home" title="Go to interface">
-              <Icon as={FaArrowCircleRight} w={6} h={6} color="white" />
-            </Link>
-          </Flex>
+          <Heading fontSize="3xl" color="black" mr={2}>
+            Advanced Reasoning Benchmark
+          </Heading>
         </Box>
       </Flex>
 
@@ -125,7 +114,6 @@ const Documentation: React.FC = () => {
             data = response.json()
           </Code>
         </Box>
-
 
         <Text fontWeight="bold" mb={2}>
           Physics Numerical:
