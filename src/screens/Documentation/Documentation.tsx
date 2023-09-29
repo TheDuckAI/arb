@@ -10,9 +10,12 @@ import {
   Icon,
   Code,
 } from "@chakra-ui/react";
-import { FaArrowCircleRight } from "react-icons/fa";
+import {
+  FaArrowCircleRight
+} from "react-icons/fa";
 
 const Documentation: React.FC = () => {
+
   return (
     <Box bg="#F9FAFC">
       <Flex
@@ -52,24 +55,14 @@ const Documentation: React.FC = () => {
           API Documentation
         </Heading>
         <Text mb={4}>
-          We provide a simple API to access the Advanced Reasoning Benchmark
-          (ARB). The API currently supports standard HTTP GET requests.
+          We provide a simple API to access the Advanced Reasoning Benchmark (ARB). The API currently supports standard HTTP GET requests.
         </Text>
 
         <Heading as="h2" size="xl" mb={6}>
           API Calls
         </Heading>
         <Text mb={4}>
-          We have three different types of API calls for retrieving problems.
-          See{" "}
-          <Link
-            href="https://app.swaggerhub.com/apis-docs/arb-dataset/arb-api/1.0.5"
-            color="teal.500"
-          >
-            here
-          </Link>{" "}
-          and select ARB API server as the mock server to see what the outputs
-          look like.
+          We have three different types of API calls for retrieving problems. See <Link href="https://app.swaggerhub.com/apis-docs/arb-dataset/arb-api/1.0.5" color="teal.500">here</Link> and select ARB API server as the mock server to see what the outputs look like.
         </Text>
 
         <Heading as="h3" size="lg" mb={4}>
@@ -78,20 +71,76 @@ const Documentation: React.FC = () => {
         <Text mb={4}>
           You can retrieve all the problems in a particular subject area by the
           following API call. Acceptable values for `category` are `law`,
-          `math`, and `mcatReading`.
+          `math`, `mcatReading`, etc.
         </Text>
         <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
-          <Code>https://arb.duckai.org/api/lib/{"{category}"}</Code>
+          <Code>https://advanced-reasoning-benchmark.netlify.app/api/lib/{"{category}"}</Code>
         </Box>
         <Text fontWeight="bold" mb={2}>
-          Math:
+          Math Numerical:
         </Text>
         <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
           <Code>
             import requests
             <br />
             response =
-            requests.get(&quot;https://arb.duckai.org/api/lib/math&quot;)
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/math&quot;)
+            <br />
+            data = response.json()
+          </Code>
+        </Box>
+
+        <Text fontWeight="bold" mb={2}>
+          Math Symbolic:
+        </Text>
+        <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
+          <Code>
+            import requests
+            <br />
+            response =
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/testSplit/math/symbolic&quot;)
+            <br />
+            data = response.json()
+          </Code>
+        </Box>
+
+        <Text fontWeight="bold" mb={2}>
+          Math Proofs:
+        </Text>
+        <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
+          <Code>
+            import requests
+            <br />
+            response =
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/testSplit/math/proof&quot;)
+            <br />
+            data = response.json()
+          </Code>
+        </Box>
+
+        <Text fontWeight="bold" mb={2}>
+          Physics Numerical:
+        </Text>
+        <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
+          <Code>
+            import requests
+            <br />
+            response =
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/physics/val&quot;)
+            <br />
+            data = response.json()
+          </Code>
+        </Box>
+
+        <Text fontWeight="bold" mb={2}>
+          Physics Symbolic:
+        </Text>
+        <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
+          <Code>
+            import requests
+            <br />
+            response =
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/testSplit/physics/val&quot;)
             <br />
             data = response.json()
           </Code>
@@ -105,7 +154,7 @@ const Documentation: React.FC = () => {
             import requests
             <br />
             response =
-            requests.get(&quot;https://arb.duckai.org/api/lib/law&quot;)
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/law&quot;)
             <br />
             data = response.json()
           </Code>
@@ -119,7 +168,7 @@ const Documentation: React.FC = () => {
             import requests
             <br />
             response =
-            requests.get(&quot;https://arb.duckai.org/api/lib/mcatReading&quot;)
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/mcatReading&quot;)
             <br />
             data = response.json()
           </Code>
@@ -130,7 +179,7 @@ const Documentation: React.FC = () => {
         </Heading>
         <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
           <Code>
-            https://arb.duckai.org/api/lib/{"{category}"}/{"{id}"}
+            https://advanced-reasoning-benchmark.netlify.app/api/lib/{"{category}"}/{"{id}"}
           </Code>
         </Box>
         <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
@@ -138,7 +187,7 @@ const Documentation: React.FC = () => {
             import requests
             <br />
             response =
-            requests.get(&quot;https://arb.duckai.org/api/lib/math/1234&quot;)
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/math/1234&quot;)
             <br />
             problem = response.json()
           </Code>
@@ -149,15 +198,31 @@ const Documentation: React.FC = () => {
         </Heading>
         <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
           <Code>
-            https://arb.duckai.org/api/lib/{"{category}"}/{"{variation}"}
+            https://advanced-reasoning-benchmark.netlify.app/api/lib/{"{category}"}/{"{variation}"}
           </Code>
         </Box>
+        <Text fontWeight="bold" mb={2}>
+          Physics Numerical w/ Images:
+        </Text>
         <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
           <Code>
             import requests
             <br />
             response =
-            requests.get(&quot;https://arb.duckai.org/api/lib/physics_numerical/img&quot;)
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/physics_numerical/img&quot;)
+            <br />
+            variation_data = response.json()
+          </Code>
+        </Box>
+        <Text fontWeight="bold" mb={2}>
+          Physics Symbolic w/ Images:
+        </Text>
+        <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
+          <Code>
+            import requests
+            <br />
+            response =
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/testSplit/physics/img&quot;)
             <br />
             variation_data = response.json()
           </Code>
@@ -188,3 +253,4 @@ const Documentation: React.FC = () => {
 };
 
 export default Documentation;
+
