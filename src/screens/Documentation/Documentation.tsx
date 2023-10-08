@@ -209,7 +209,7 @@ const Documentation: React.FC = () => {
             import requests
             <br />
             response =
-            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/physics_numerical/img&quot;)
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/physics/img&quot;)
             <br />
             variation_data = response.json()
           </Code>
