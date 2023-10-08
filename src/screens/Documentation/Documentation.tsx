@@ -187,7 +187,7 @@ const Documentation: React.FC = () => {
             import requests
             <br />
             response =
-            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/math/1234&quot;)
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/math/64ade9c30b1afac21d212df7&quot;)
             <br />
             problem = response.json()
           </Code>
