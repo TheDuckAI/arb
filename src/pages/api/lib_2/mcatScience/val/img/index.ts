@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { getAllScienceImagesProblems } from "../../../../../server/mongodb/actions/mcatProblem";
-import requestWrapper from "../../../../../server/utils/middleware";
+import { getAllScienceImagesProblems } from "../../../../../../server/mongodb/actions/mcatProblem";
+import requestWrapper from "../../../../../../server/utils/middleware";
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   const allProblems = await getAllScienceImagesProblems();

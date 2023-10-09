@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const numericalProblemSchema = new mongoose.Schema({
+const mathPhysicsProblemSchema = new mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
   Problem_Statement: {
     type: String,
@@ -41,40 +41,40 @@ export const mathNumericalModel =
   mongoose.models.mathNumericalProblem ||
   mongoose.model(
     "mathNumericalProblem",
-    numericalProblemSchema,
+    mathPhysicsProblemSchema,
     "math_numerical"
   );
 export const physicsNumericalModel =
   mongoose.models.physicsNumericalProblem ||
   mongoose.model(
     "physicsNumericalProblem",
-    numericalProblemSchema,
+    mathPhysicsProblemSchema,
     "physics_numerical"
   );
-export const physicsImgModel =
+export const physicsNumericalImgModel =
   mongoose.models.physicsImgProblem ||
   mongoose.model(
-    "physicsImgProblem",
-    numericalProblemSchema,
+    "physicsNumericalImgProblem",
+    mathPhysicsProblemSchema,
     "physics_numerical_images"
   );
 
 export const mathProofsModel =
   mongoose.models.mathProofsProblem ||
-  mongoose.model("mathProofsProblem", numericalProblemSchema, "mathProofs");
+  mongoose.model("mathProofsProblem", mathPhysicsProblemSchema, "math_prooflike");
 
 export const mathSymbolicModel =
   mongoose.models.mathSymbolicModel ||
-  mongoose.model("mathSymbolicModel", numericalProblemSchema, "mathSymbolic");
+  mongoose.model("mathSymbolicModel", mathPhysicsProblemSchema, "math_symbolic");
 
-export const physicsTestModel =
-  mongoose.models.physicsTestProblem ||
-  mongoose.model("physicsTestProblem", numericalProblemSchema, "physics_test");
+export const physicsSymbolicModel =
+  mongoose.models.physicsSymbolicProblem ||
+  mongoose.model("physicsSymbolicProblem", mathPhysicsProblemSchema, "physics_symbolic");
 
-export const physicsTestImgModel =
-  mongoose.models.physicsTestImgProblem ||
+export const physicsSymbolicImgModel =
+  mongoose.models.physicsSymbolicImgProblem ||
   mongoose.model(
-    "physicsTestImgProblem",
-    numericalProblemSchema,
-    "physics_test_img"
+    "physicsSymbolicImgProblem",
+    mathPhysicsProblemSchema,
+    "physics_symbolic_img"
   );

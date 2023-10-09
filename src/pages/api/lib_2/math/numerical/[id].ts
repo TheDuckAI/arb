@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { findMathProblemById } from "../../../../server/mongodb/actions/numericalProblem";
-import requestWrapper from "../../../../server/utils/middleware";
+import { findMathProblemById } from "../../../../../server/mongodb/actions/mathPhysics"
+import requestWrapper from "../../../../../server/utils/middleware";
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "GET") {

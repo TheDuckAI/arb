@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { findReadingProblemById } from "../../../../server/mongodb/actions/mcatProblem";
-import requestWrapper from "../../../../server/utils/middleware";
+import { findReadingProblemById } from "../../../../../server/mongodb/actions/mcatProblem";
+import requestWrapper from "../../../../../server/utils/middleware";
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "GET") {

@@ -1,12 +1,12 @@
 import {
   mathNumericalModel,
   physicsNumericalModel,
-  physicsImgModel,
+  physicsNumericalImgModel,
   mathProofsModel,
   mathSymbolicModel,
-  physicsTestImgModel,
-  physicsTestModel,
-} from "../models/numerical_problem";
+  physicsSymbolicImgModel,
+  physicsSymbolicModel,
+} from "../models/math_physics";
 
 import { ObjectId } from "mongodb";
 
@@ -32,13 +32,13 @@ async function getRandomPhysicsProblem() {
 }
 
 async function getRandomPhysicsImgProblem() {
-  const randomDocument = await physicsImgModel.aggregate([
+  const randomDocument = await physicsNumericalImgModel.aggregate([
     { $sample: { size: 1 } },
   ]);
   return randomDocument[0];
 }
 
-async function getAllMathProblems() {
+async function getAllMathNumericalProblems() {
   return await mathNumericalModel.find(
     {},
     {
@@ -89,7 +89,7 @@ async function getAllMathSymbolicProblems() {
   );
 }
 
-async function getAllPhysicsProblems() {
+async function getAllPhysicsNumericalProblems() {
   return await physicsNumericalModel.find(
     {},
     {
@@ -106,8 +106,8 @@ async function getAllPhysicsProblems() {
   );
 }
 
-async function getAllPhysicsTestProblems() {
-  return await physicsTestModel.find(
+async function getAllPhysicsSymbolicProblems() {
+  return await physicsSymbolicModel.find(
     {},
     {
       _id: 1,
@@ -158,6 +158,8 @@ async function getAllPhysicsImgTestProblems() {
     }
   );
 }
+
+
 
 async function findMathProblemById(id) {
   return findOneByMongoId(mathNumericalModel, id, {
@@ -221,13 +223,11 @@ export {
   getRandomMathProblem,
   getRandomPhysicsImgProblem,
   getRandomPhysicsProblem,
-  getAllMathProblems,
   getAllMathProofProblems,
   getAllMathSymbolicProblems,
-  getAllPhysicsProblems,
   getAllPhysicsImgProblems,
   getAllPhysicsImgTestProblems,
-  getAllPhysicsTestProblems,
+  getAllPhysicsSymbolicProblems,
   findMathProblemById,
   findPhysicsProblemById,
   findPhysicsImgProblemById,

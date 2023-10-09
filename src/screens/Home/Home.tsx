@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { Image } from "@chakra-ui/react";
 import { Center } from "@chakra-ui/react";
 
@@ -42,7 +42,7 @@ export default function Home() {
   const [showSolution, setShowSolution] = useState(false);
   const [showFinalAnswer, setShowFinalAnswer] = useState(false);
 
-  const endpoints = {
+  const endpoints = useMemo(() => ({
     "Law Problem": "/api/lawProblem",
     "Math Numerical Problem": "/api/mathProblem",
     "MCAT Reading Problem": "/api/mcatReadingProblem",
@@ -50,14 +50,22 @@ export default function Home() {
     "MCAT Science Image Problem": "/api/mcatScienceImageProblem",
     "Physics Numerical Problem": "/api/physicsProblem",
     "Physics Numerical Image Problem": "/api/physicsImgProblem",
-  };
+  }), []);
 
   const fetchProblem = (endpoint: string) => {
     fetch(endpoint)
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
       .then((data) => {
         console.log(data);
         setProblem(data["randomProblem"]);
+      })
+      .catch(error => {
+        console.error("There was a problem with the fetch operation:", error);
       });
   };
   useEffect(() => {
@@ -73,7 +81,7 @@ export default function Home() {
         setFinalAnswer(problem["Final Answer"]);
       }
     }
-  }, [problem]);
+  }, [problem, endpoints]);
 
   useEffect(() => {
     const randomProblemType =
@@ -86,7 +94,7 @@ export default function Home() {
     ];
     setRandomEndpoint(randomEndpoint);
     fetchProblem(randomEndpoint);
-  }, []);
+  }, [endpoints]);
 
   const handleProblemTypeChange = (
     event: React.ChangeEvent<HTMLSelectElement>

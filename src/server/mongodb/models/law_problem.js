@@ -2,47 +2,46 @@ import mongoose from "mongoose";
 
 const lawProblemSchema = new mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
-  problemStatement: {
+  "Problem Statement": {
     type: String,
     required: true,
   },
-  problemNumber: {
+  "Problem Number": {
     type: String,
     required: false,
   },
-  topic: {
+  "Topic": {
     type: String,
     required: false,
   },
-  source: {
+  "Source": {
     type: String,
-    required: false,
+    required: false, 
   },
-  answerCandidates: {
+  "Answer Candidates": {
     type: [String],
     required: true,
   },
-  outputFormatInstructions: {
+  "Output Format Instructions": {
     type: String,
     required: false,
   },
-  solution: {
+  "Solution": {
     type: String,
     required: false,
   },
-  finalAnswer: {
+  "Final Answer": {
     type: String,
     required: true,
   },
-  images: {
+  "Images": {
     type: [String],
     required: false,
   },
-  problemType: {
+  "Problem Type": {
     type: String,
+    required: true,  // I've set this to true since the entry has it
   },
 });
 
-export const lawProblemModel =
-  mongoose.models.lawProblem ||
-  mongoose.model("lawProblem", lawProblemSchema, "law");
+export const lawProblemModel = mongoose.models.lawProblem || mongoose.model("law", lawProblemSchema);
