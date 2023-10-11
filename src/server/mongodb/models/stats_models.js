@@ -16,10 +16,10 @@ const statsSchema = new Schema({
     }
 });
 
-export const mathNumericalStatsModel = mongoose.models.stats || mongoose.model("stats", statsSchema, "stats_numerical");
+export const mathNumericalStatsModel = mongoose.models.mathNumericalStats || mongoose.model("mathNumericalStats", statsSchema, "stats_numerical");
 
-export const mathSymbolicStatsModel = mongoose.models.stats || mongoose.model("stats", statsSchema, "stats_symbolic");
+export const mathSymbolicStatsModel = mongoose.models.mathSymbolicStats || mongoose.model("mathSymbolicStats", statsSchema, "stats_symbolic");
 
-export const physicsNumericalStatsModel = mongoose.models.stats || mongoose.model("stats", statsSchema, "stats_physics_numerical");
+export const physicsNumericalStatsModel = mongoose.models.physicsNumericalStats || mongoose.model("physicsNumericalStats", statsSchema, "stats_physics_numerical");
 
-export const physicsSymbolicStatsModel = mongoose.models.stats || mongoose.model("stats", statsSchema, "stats_physics_symbolic");
+export const physicsSymbolicStatsModel = mongoose.models.physicsSymbolicStats || mongoose.model("physicsSymbolicStats", statsSchema, "stats_physics_symbolic");
