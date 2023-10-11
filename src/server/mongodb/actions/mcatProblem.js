@@ -1,10 +1,10 @@
 import {
-  mcatReadingValModel,
-  mcatScienceValModel,
-  mcatScienceImgModel,
   mcatReadingTestModel,
+  mcatReadingValModel,
+  mcatScienceImgModel,
   mcatScienceImgTestModel,
   mcatScienceTestModel,
+  mcatScienceValModel,
 } from "../models/mcat_problem";
 
 import _ from "lodash";
@@ -194,19 +194,5 @@ async function findScienceImagesTestProblemById(id) {
 }
 
 export {
-  getRandomReadingProblem,
-  getRandomScienceProblem,
-  getRandomScienceImagesProblem,
-  getAllReadingProblems,
-  getAllScienceProblems,
-  getAllScienceImagesProblems,
-  getAllReadingTestProblems,
-  getAllScienceTestProblems,
-  getAllScienceImagesTestProblems,
-  findReadingProblemById,
-  findScienceProblemById,
-  findScienceImagesProblemById,
-  findReadingTestProblemById,
-  findScienceTestProblemById,
-  findScienceImagesTestProblemById,
+  findReadingProblemById, findReadingTestProblemById, findScienceImagesProblemById, findScienceImagesTestProblemById, findScienceProblemById, findScienceTestProblemById, getAllReadingProblems, getAllReadingTestProblems, getAllScienceImagesProblems, getAllScienceImagesTestProblems, getAllScienceProblems, getAllScienceTestProblems, getRandomReadingProblem, getRandomScienceImagesProblem, getRandomScienceProblem
 };

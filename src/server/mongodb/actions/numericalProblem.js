@@ -1,9 +1,9 @@
 import {
   mathNumericalModel,
-  physicsNumericalModel,
-  physicsImgModel,
   mathProofsModel,
   mathSymbolicModel,
+  physicsImgModel,
+  physicsNumericalModel,
   physicsTestImgModel,
   physicsTestModel,
 } from "../models/numerical_problem";
@@ -218,21 +218,12 @@ async function findPhysicsImgTestProblemById(id) {
 }
 
 export {
-  getRandomMathProblem,
-  getRandomPhysicsImgProblem,
-  getRandomPhysicsProblem,
-  getAllMathProblems,
+  findMathProblemById, findMathProofProblemById,
+  findMathSymbolicProblemById, findPhysicsImgProblemById, findPhysicsImgTestProblemById, findPhysicsProblemById, findPhysicsTestProblemById, getAllMathProblems,
   getAllMathProofProblems,
-  getAllMathSymbolicProblems,
-  getAllPhysicsProblems,
-  getAllPhysicsImgProblems,
-  getAllPhysicsImgTestProblems,
-  getAllPhysicsTestProblems,
-  findMathProblemById,
-  findPhysicsProblemById,
-  findPhysicsImgProblemById,
-  findMathProofProblemById,
-  findMathSymbolicProblemById,
-  findPhysicsImgTestProblemById,
-  findPhysicsTestProblemById,
+  getAllMathSymbolicProblems, getAllPhysicsImgProblems,
+  getAllPhysicsImgTestProblems, getAllPhysicsProblems, getAllPhysicsTestProblems, getRandomMathProblem,
+  getRandomPhysicsImgProblem,
+  getRandomPhysicsProblem
 };
+
