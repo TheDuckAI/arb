@@ -1,9 +1,9 @@
+import { getAllPhysicsTestProblems } from "@/server/mongodb/actions/numericalProblem";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { getAllReadingProblems } from "../../../../server/mongodb/actions/mcatProblem";
-import requestWrapper from "../../../../server/utils/middleware";
+import requestWrapper from "../../../../../../server/utils/middleware";
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const allProblems = await getAllReadingProblems();
+  const allProblems = await getAllPhysicsTestProblems();
 
   const formattedResponse = JSON.stringify(allProblems, null, 2);
 

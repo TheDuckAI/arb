@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { findReadingProblemById } from "../../../../server/mongodb/actions/mcatProblem";
-import requestWrapper from "../../../../server/utils/middleware";
+import { findMathProofProblemById } from "../../../../../server/mongodb/actions/numericalProblem";
+import requestWrapper from "../../../../../server/utils/middleware";
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "GET") {
@@ -8,7 +8,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     return;
   }
   const { id } = req.query;
-  const problem = await findReadingProblemById(id);
+  const problem = await findMathProofProblemById(id);
 
   const formattedResponse = JSON.stringify(problem, null, 2);
 
