@@ -6,10 +6,10 @@ const statsSchema = new Schema({
         type: String,
         required: true,
     },
-    // percentage: {
-    //     type: String,
-    //     required: true,
-    // },
+    percentage: {
+        type: String,
+        required: true,
+    },
     subjectName: {
         type: String,
         required: true,
