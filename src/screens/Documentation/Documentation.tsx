@@ -66,6 +66,9 @@ const Documentation: React.FC = () => {
         </Text>
 
 
+
+
+
         <Heading as="h3" size="lg" mb={4}>
           Categories without Images.
         </Heading>
@@ -158,9 +161,33 @@ const Documentation: React.FC = () => {
         </Box>
         <Text mb={4}>
           MCAT Reading Test Split:
+        </Text> 
+        <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
+          <Code>
+            import requests
+            <br />
+            response =
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/mcatReading/test&quot;)
+            <br />
+            data = response.json()
+          </Code>
+        </Box>
+
+
+
+
+
+
+
+        <Heading as="h3" size="lg" mb={4}>
+          Categories without Images.
+        </Heading>
+        <Text mb={4}>
+        For physics and MCAT Science, you can specify whether you want the problems with or without images.
+        
         </Text>
         <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
-        <Code>
+          <Code>
             https://advanced-reasoning-benchmark.netlify.app/api/lib/{"{category}"}/{"{answer-type}"}/{"{modality}"}
           </Code>
         </Box>
