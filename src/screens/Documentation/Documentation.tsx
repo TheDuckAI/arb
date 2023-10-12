@@ -91,9 +91,12 @@ const Documentation: React.FC = () => {
         </Text>
         <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
           <Code>
-            https://advanced-reasoning-benchmark.netlify.app/api/lib/math/
+            https://advanced-reasoning-benchmark.netlify.app/api/lib/math/{"{answer-type}"}/
           </Code>
         </Box>
+        <Text mb={4}>
+          where acceptable values for `answer-type` are `numerical`, `symbolic`, and `prooflike`.
+        </Text>
         <Text mb={4}>
           Numerical
         </Text>
