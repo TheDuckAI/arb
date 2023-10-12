@@ -65,30 +65,27 @@ const Documentation: React.FC = () => {
           We have three different types of API calls for retrieving problems. See <Link href="https://app.swaggerhub.com/apis-docs/arb-dataset/arb-api/1.0.5" color="teal.500">here</Link> and select ARB API server as the mock server to see what the outputs look like.
         </Text>
 
+
         <Heading as="h3" size="lg" mb={4}>
-          Get problem by category:
+          Categories without Images.
         </Heading>
         <Text mb={4}>
-          You can retrieve all the problems in a particular subject area by the
-          following API call. Acceptable values for `category` are `law`,
-          `math`, `mcatReading`, etc.
-        </Text>
-        <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
-          <Code>https://advanced-reasoning-benchmark.netlify.app/api/lib/{"{category}"}</Code>
-        </Box>
-        <Text fontWeight="bold" mb={2}>
-          Math Numerical:
+          For law, problems are retrieved according to the following:
         </Text>
         <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
           <Code>
             import requests
             <br />
             response =
-            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/math&quot;)
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/law/&quot;)
             <br />
             data = response.json()
           </Code>
         </Box>
+
+
+
+
 
         <Text fontWeight="bold" mb={2}>
           Math Symbolic:
