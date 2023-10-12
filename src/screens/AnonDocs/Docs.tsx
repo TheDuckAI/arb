@@ -10,9 +10,12 @@ import {
   Icon,
   Code,
 } from "@chakra-ui/react";
-import { FaArrowCircleRight } from "react-icons/fa";
+import {
+  FaArrowCircleRight
+} from "react-icons/fa";
 
 const Documentation: React.FC = () => {
+
   return (
     <Box bg="#F9FAFC">
       <Flex
@@ -31,9 +34,6 @@ const Documentation: React.FC = () => {
           flexGrow={1}
           textAlign={{ base: "center", md: "left" }}
         >
-          <Heading fontSize="3xl" color="black" mr={2}>
-            Advanced Reasoning Benchmark
-          </Heading>
         </Box>
       </Flex>
 
@@ -42,189 +42,277 @@ const Documentation: React.FC = () => {
           API Documentation
         </Heading>
         <Text mb={4}>
-          We provide a simple API to access the Advanced Reasoning Benchmark
-          (ARB). The API currently supports standard HTTP GET requests.
+          We provide a simple API to access the Advanced Reasoning Benchmark (ARB). The API currently supports standard HTTP GET requests.
         </Text>
-
-        <Heading as="h2" size="xl" mb={6}>
+      
+        {/* <Heading as="h2" size="xl" mb={6}>
           API Calls
         </Heading>
         <Text mb={4}>
-          We have three different types of API calls for retrieving problems.
-          See{" "}
-          <Link
-            href="https://app.swaggerhub.com/apis-docs/arb-dataset/arb-api/1.0.5"
-            color="teal.500"
-          >
-            here
-          </Link>{" "}
-          and select ARB API server as the mock server to see what the outputs
-          look like.
-        </Text>
+          We have three different types of API calls for retrieving problems. See <Link href="https://app.swaggerhub.com/apis-docs/arb-dataset/arb-api/1.0.5" color="teal.500">here</Link> and select ARB API server as the mock server to see what the outputs look like.
+        </Text> */}
+
+
+
+
 
         <Heading as="h3" size="lg" mb={4}>
-          Get problem by category:
+          Categories without Images.
         </Heading>
         <Text mb={4}>
-          You can retrieve all the problems in a particular subject area by the
-          following API call. Acceptable values for `category` are `law`,
-          `math`, `mcatReading`, etc.
-        </Text>
-        <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
-          <Code>https://advanced-reasoning-benchmark.netlify.app/api/lib/{"{category}"}</Code>
-        </Box>
-        <Text fontWeight="bold" mb={2}>
-          Math Numerical:
+          For law, problems are retrieved according to the following:
         </Text>
         <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
           <Code>
             import requests
             <br />
             response =
-            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/math&quot;)
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/law/&quot;)
             <br />
             data = response.json()
           </Code>
         </Box>
 
-        <Text fontWeight="bold" mb={2}>
-          Math Symbolic:
+        <Text mb={4}>
+          For math, you can retrieve the problems according to the following template:
+        </Text>
+        <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
+          <Code>
+            https://advanced-reasoning-benchmark.netlify.app/api/lib/math/{"{answer-type}"}/
+          </Code>
+        </Box>
+        <Text mb={4}>
+          where acceptable values for `answer-type` are `numerical`, `symbolic`, and `prooflike`.
+        </Text>
+        <Text mb={4}>
+          Numerical
         </Text>
         <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
           <Code>
             import requests
             <br />
             response =
-            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/testSplit/math/symbolic&quot;)
-
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/math/numerical&quot;)
             <br />
             data = response.json()
           </Code>
         </Box>
-
-        <Text fontWeight="bold" mb={2}>
-          Math Proofs:
+        <Text mb={4}>
+          Symbolic
         </Text>
         <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
           <Code>
             import requests
             <br />
             response =
-            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/testSplit/math/proof&quot;)
-
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/math/symbolic&quot;)
             <br />
             data = response.json()
           </Code>
         </Box>
-
-        <Text fontWeight="bold" mb={2}>
-          Physics Numerical:
+        <Text mb={4}>
+          Proof-like
         </Text>
         <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
           <Code>
             import requests
             <br />
             response =
-            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/physics/val&quot;)
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/math/prooflike&quot;)
             <br />
             data = response.json()
           </Code>
         </Box>
 
-        <Text fontWeight="bold" mb={2}>
-          Physics Symbolic:
+
+        <Text mb={4}>
+          For MCAT Reading, you can retrieve the problems according to the following template:
+        </Text>
+        <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
+          <Code>
+            https://advanced-reasoning-benchmark.netlify.app/api/lib/mcatReading/{"{split}"}
+          </Code>
+        </Box>
+        <Text mb={4}>
+         where acceptable values for `split` are `val` and `test`.
+        </Text>
+        <Text mb={4}>
+          MCAT Reading Validation Split:
         </Text>
         <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
           <Code>
             import requests
             <br />
             response =
-            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/testSplit/physics/val&quot;)
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/mcatReading/val&quot;)
+            <br />
+            data = response.json()
+          </Code>
+        </Box>
+        <Text mb={4}>
+          MCAT Reading Test Split:
+        </Text> 
+        <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
+          <Code>
+            import requests
+            <br />
+            response =
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/mcatReading/test&quot;)
             <br />
             data = response.json()
           </Code>
         </Box>
 
-        <Text fontWeight="bold" mb={2}>
-          Law:
+
+
+
+
+
+
+        <Heading as="h3" size="lg" mb={4}>
+          Categories without Images.
+        </Heading>
+        <Text mb={4}>
+        For physics and MCAT Science, you can specify whether you want the problems with or without images.
+
+        </Text>
+        <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
+          <Code>
+            https://advanced-reasoning-benchmark.netlify.app/api/lib/{"{category}"}/{"{answer-type}"}/{"{modality}"}
+          </Code>
+        </Box>
+        <Text mb={4}>
+          For physics, acceptable values for `{"{answer-type}"}` are `numerical` and `symbolic`. Acceptable values for `{"{modality}"}` are `img` and `noimg`. 
+        </Text>
+        <Text mb={4}>
+          Physics Numerical without Images
         </Text>
         <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
           <Code>
             import requests
             <br />
             response =
-            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/law&quot;)
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/physics/numerical/noimg&quot;)
             <br />
             data = response.json()
           </Code>
         </Box>
-
-        <Text fontWeight="bold" mb={2}>
-          MCAT Reading:
+        <Text mb={4}>
+        Physics Numerical with Images
         </Text>
         <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
           <Code>
             import requests
             <br />
             response =
-            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/mcatReading&quot;
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/physics/numerical/img&quot;)
             <br />
             data = response.json()
           </Code>
         </Box>
+        <Text mb={4}>
+          Physics Symbolic without Images
+        </Text>
+        <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
+          <Code>
+            import requests
+            <br />
+            response =
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/physics/symbolic/noimg&quot;)
+            <br />
+            data = response.json()
+          </Code>
+        </Box>
+        <Text mb={4}>
+        Physics Symbolic with Images
+        </Text>
+        <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
+          <Code>
+            import requests
+            <br />
+            response =
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/physics/symbolic/img&quot;)
+            <br />
+            data = response.json()
+          </Code>
+        </Box>
+
+        <Text mb={4}>
+        For MCAT Science, `{"{answer-type}"}` should be filled in with the splits, namely `val` and `test`. Acceptable values for `{"{modality}"}` are `img` and `noimg`. For example, if you want the MCAT Science from the validation split without images, you can use the following template:
+        </Text>
+        <Text mb={4}>
+        MCAT Science Validation Split without Image
+        </Text>
+        <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
+          <Code>
+            import requests
+            <br />
+            response =
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/mcatScience/val/noimg&quot;)
+            <br />
+            data = response.json()
+          </Code>
+        </Box> 
+        <Text mb={4}>
+        MCAT Science Validation Split with Image
+        </Text>
+        <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
+          <Code>
+            import requests
+            <br />
+            response =
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/mcatScience/val/img&quot;)
+            <br />
+            data = response.json()
+          </Code>
+        </Box> 
+        <Text mb={4}>
+        MCAT Science Test Split without Image
+        </Text>
+        <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
+          <Code>
+            import requests
+            <br />
+            response =
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/mcatScience/test/noimg&quot;)
+            <br />
+            data = response.json()
+          </Code>
+        </Box> 
+        <Text mb={4}>
+        MCAT Science Test Split with Image
+        </Text>
+        <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
+          <Code>
+            import requests
+            <br />
+            response =
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/mcatScience/test/img&quot;)
+            <br />
+            data = response.json()
+          </Code>
+        </Box> 
+
 
         <Heading as="h3" size="lg" mb={4}>
           Get a specific problem by id within category
         </Heading>
-        <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
-          <Code>
-            https://advanced-reasoning-benchmark.netlify.app/api/lib/{"{category}"}/{"{id}"}
-          </Code>
-        </Box>
-        <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
-          <Code>
-            import requests
-            <br />
-            response =
-            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/math/1234&quot;)
-            <br />
-            problem = response.json()
-          </Code>
-        </Box>
+        <Text mb={4}>
+        For any of the above, if you terminate the API call with `/{"id"}`, then you can get a specific problem with that ID. 
 
-        <Heading as="h3" size="lg" mb={4}>
-          Get problem by category variation (e.g. img vs val)
-        </Heading>
-        <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
-          <Code>
-            https://advanced-reasoning-benchmark.netlify.app/api/lib/{"{category}"}/{"{variation}"}
-          </Code>
-        </Box>
-        <Text fontWeight="bold" mb={2}>
-          Physics Numerical w/ Images:
+        Some examples: 
+
         </Text>
         <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
           <Code>
-            import requests
-            <br />
-            response =
-            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/physics_numerical/img&quo
-            <br />
-            variation_data = response.json()
+            https://advanced-reasoning-benchmark.netlify.app/api/lib/mcatScience/test/noimg/64cdbc1978a46c58407af688
           </Code>
         </Box>
-        <Text fontWeight="bold" mb={2}>
-          Physics Symbolic w/ Images:
-        </Text>
+
+
         <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
           <Code>
-            import requests
-            <br />
-            response =
-            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/testSplit/physics/img&quot;)
-
-            <br />
-            variation_data = response.json()
+            https://advanced-reasoning-benchmark.netlify.app/api/lib/math/numerical/64ade9c30b1afac21d212df7
           </Code>
         </Box>
       </Container>
@@ -237,16 +325,10 @@ const Documentation: React.FC = () => {
         padding={6}
         bg="teal.500"
       >
-        <Link
-          href="/docs"
-          color="white"
-          textDecoration="underline"
-          _hover={{ color: "white", textDecoration: "underline" }}
-        >
+        
           <Text fontWeight="bold" fontSize="md">
-            Copyright © 2023 The ARB Team
+            Copyright © 2023 ARB Team
           </Text>
-        </Link>
       </Flex>
     </Box>
   );
