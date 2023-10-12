@@ -132,10 +132,43 @@ const Documentation: React.FC = () => {
         </Box>
 
 
-
-
-
-
+        <Text mb={4}>
+          For MCAT Reading, you can retrieve the problems according to the following template:
+        </Text>
+        <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
+          <Code>
+            https://advanced-reasoning-benchmark.netlify.app/api/lib/mcatReading/{"{split}"}
+          </Code>
+        </Box>
+        <Text mb={4}>
+         where acceptable values for `split` are `val` and `test`.
+        </Text>
+        <Text mb={4}>
+          MCAT Reading Validation Split:
+        </Text>
+        <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
+          <Code>
+            import requests
+            <br />
+            response =
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/mcatReading/val&quot;)
+            <br />
+            data = response.json()
+          </Code>
+        </Box>
+        <Text mb={4}>
+          MCAT Reading Test Split:
+        </Text>
+        <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
+          <Code>
+            import requests
+            <br />
+            response =
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/mcatReading/test&quot;)
+            <br />
+            data = response.json()
+          </Code>
+        </Box>
       </Container>
 
       <Flex
