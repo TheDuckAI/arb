@@ -34,9 +34,6 @@ const Documentation: React.FC = () => {
           flexGrow={1}
           textAlign={{ base: "center", md: "left" }}
         >
-          <Link href="https://duckai.org">
-            <Image src="/twitter-card.png" alt="DuckAI Logo" maxW="150px" />
-          </Link>
         </Box>
         <Box flexBasis={{ base: "100%", md: "auto" }}>
           <Flex align="center">
@@ -338,14 +335,9 @@ const Documentation: React.FC = () => {
         padding={6}
         bg="teal.500"
       >
-        <Link
-          href="https://github.com/TheDuckAI"
-          color="white"
-          textDecoration="underline"
-          _hover={{ color: "white", textDecoration: "underline" }}
-        >
+        
           <Text fontWeight="bold" fontSize="md">
-            Copyright © 2023 DuckAI
+            Copyright © 2023 ARB Team
           </Text>
         </Link>
       </Flex>
