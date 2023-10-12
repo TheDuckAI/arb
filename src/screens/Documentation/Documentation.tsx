@@ -35,13 +35,6 @@ const Documentation: React.FC = () => {
           textAlign={{ base: "center", md: "left" }}
         >
         </Box>
-        <Box flexBasis={{ base: "100%", md: "auto" }}>
-          <Flex align="center">
-            <Link href="/home" title="Go to interface">
-              <Icon as={FaArrowCircleRight} w={6} h={6} color="white" />
-            </Link>
-          </Flex>
-        </Box>
       </Flex>
 
       <Container maxW="container.xl" py={8}>
