@@ -57,13 +57,12 @@ const Documentation: React.FC = () => {
         <Text mb={4}>
           We provide a simple API to access the Advanced Reasoning Benchmark (ARB). The API currently supports standard HTTP GET requests.
         </Text>
-
-        <Heading as="h2" size="xl" mb={6}>
+      {/* <Heading as="h2" size="xl" mb={6}>
           API Calls
         </Heading>
         <Text mb={4}>
           We have three different types of API calls for retrieving problems. See <Link href="https://app.swaggerhub.com/apis-docs/arb-dataset/arb-api/1.0.5" color="teal.500">here</Link> and select ARB API server as the mock server to see what the outputs look like.
-        </Text>
+        </Text> */}
 
         <Heading as="h3" size="lg" mb={4}>
           Get problem by category:
@@ -196,6 +195,10 @@ const Documentation: React.FC = () => {
         <Heading as="h3" size="lg" mb={4}>
           Get problem by category variation (e.g. img vs val)
         </Heading>
+        <Text mb={4}>
+        For physics and MCAT Science, you can specify whether you want the problems with or without images.
+
+        </Text>
         <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
           <Code>
             https://advanced-reasoning-benchmark.netlify.app/api/lib/{"{category}"}/{"{variation}"}
