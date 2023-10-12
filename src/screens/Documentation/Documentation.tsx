@@ -37,9 +37,6 @@ const Documentation: React.FC = () => {
         </Box>
         <Box flexBasis={{ base: "100%", md: "auto" }}>
           <Flex align="center">
-            <Heading fontSize="2s" color="white" mr={2}>
-              Try out our interface!
-            </Heading>
             <Link href="/home" title="Go to interface">
               <Icon as={FaArrowCircleRight} w={6} h={6} color="white" />
             </Link>
