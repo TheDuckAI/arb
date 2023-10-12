@@ -58,12 +58,12 @@ const Documentation: React.FC = () => {
           We provide a simple API to access the Advanced Reasoning Benchmark (ARB). The API currently supports standard HTTP GET requests.
         </Text>
       
-        <Heading as="h2" size="xl" mb={6}>
+        {/* <Heading as="h2" size="xl" mb={6}>
           API Calls
         </Heading>
         <Text mb={4}>
           We have three different types of API calls for retrieving problems. See <Link href="https://app.swaggerhub.com/apis-docs/arb-dataset/arb-api/1.0.5" color="teal.500">here</Link> and select ARB API server as the mock server to see what the outputs look like.
-        </Text>
+        </Text> */}
 
 
 
@@ -184,7 +184,7 @@ const Documentation: React.FC = () => {
         </Heading>
         <Text mb={4}>
         For physics and MCAT Science, you can specify whether you want the problems with or without images.
-        
+
         </Text>
         <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
           <Code>
@@ -303,6 +303,28 @@ const Documentation: React.FC = () => {
           </Code>
         </Box> 
 
+
+        <Heading as="h3" size="lg" mb={4}>
+          Get a specific problem by id within category
+        </Heading>
+        <Text mb={4}>
+        For any of the above, if you terminate the API call with `/{"id"}`, then you can get a specific problem with that ID. 
+
+        Some examples: 
+
+        </Text>
+        <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
+          <Code>
+            https://advanced-reasoning-benchmark.netlify.app/api/lib/mcatScience/test/noimg/64cdbc1978a46c58407af688
+          </Code>
+        </Box>
+
+
+        <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
+          <Code>
+            https://advanced-reasoning-benchmark.netlify.app/api/lib/math/numerical/64ade9c30b1afac21d212df7
+          </Code>
+        </Box>
       </Container>
 
       <Flex
