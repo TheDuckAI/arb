@@ -160,15 +160,122 @@ const Documentation: React.FC = () => {
           MCAT Reading Test Split:
         </Text>
         <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
+        <Code>
+            https://advanced-reasoning-benchmark.netlify.app/api/lib/{"{category}"}/{"{answer-type}"}/{"{modality}"}
+          </Code>
+        </Box>
+        <Text mb={4}>
+          For physics, acceptable values for `{"{answer-type}"}` are `numerical` and `symbolic`. Acceptable values for `{"{modality}"}` are `img` and `noimg`. 
+        </Text>
+        <Text mb={4}>
+          Physics Numerical without Images
+        </Text>
+        <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
           <Code>
             import requests
             <br />
             response =
-            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/mcatReading/test&quot;)
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/physics/numerical/noimg&quot;)
             <br />
             data = response.json()
           </Code>
         </Box>
+        <Text mb={4}>
+        Physics Numerical with Images
+        </Text>
+        <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
+          <Code>
+            import requests
+            <br />
+            response =
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/physics/numerical/img&quot;)
+            <br />
+            data = response.json()
+          </Code>
+        </Box>
+        <Text mb={4}>
+          Physics Symbolic without Images
+        </Text>
+        <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
+          <Code>
+            import requests
+            <br />
+            response =
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/physics/symbolic/noimg&quot;)
+            <br />
+            data = response.json()
+          </Code>
+        </Box>
+        <Text mb={4}>
+        Physics Symbolic with Images
+        </Text>
+        <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
+          <Code>
+            import requests
+            <br />
+            response =
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/physics/symbolic/img&quot;)
+            <br />
+            data = response.json()
+          </Code>
+        </Box>
+
+        <Text mb={4}>
+        For MCAT Science, `{"{answer-type}"}` should be filled in with the splits, namely `val` and `test`. Acceptable values for `{"{modality}"}` are `img` and `noimg`. For example, if you want the MCAT Science from the validation split without images, you can use the following template:
+        </Text>
+        <Text mb={4}>
+        MCAT Science Validation Split without Image
+        </Text>
+        <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
+          <Code>
+            import requests
+            <br />
+            response =
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/mcatScience/val/noimg&quot;)
+            <br />
+            data = response.json()
+          </Code>
+        </Box> 
+        <Text mb={4}>
+        MCAT Science Validation Split with Image
+        </Text>
+        <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
+          <Code>
+            import requests
+            <br />
+            response =
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/mcatScience/val/img&quot;)
+            <br />
+            data = response.json()
+          </Code>
+        </Box> 
+        <Text mb={4}>
+        MCAT Science Test Split without Image
+        </Text>
+        <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
+          <Code>
+            import requests
+            <br />
+            response =
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/mcatScience/test/noimg&quot;)
+            <br />
+            data = response.json()
+          </Code>
+        </Box> 
+        <Text mb={4}>
+        MCAT Science Test Split with Image
+        </Text>
+        <Box p={4} mb={4} borderWidth="1px" borderRadius="md" bg="gray.50">
+          <Code>
+            import requests
+            <br />
+            response =
+            requests.get(&quot;https://advanced-reasoning-benchmark.netlify.app/api/lib/mcatScience/test/img&quot;)
+            <br />
+            data = response.json()
+          </Code>
+        </Box> 
+
       </Container>
 
       <Flex
