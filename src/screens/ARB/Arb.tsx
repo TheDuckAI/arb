@@ -21,55 +21,6 @@ import {
 } from "react-icons/fa";
 import { AiFillFile } from "react-icons/ai";
 
-const authors = [
-  {
-    name: "Tomohiro Sawada",
-    affiliations: [1, 2],
-    href: "https://tomohiro-sawada.github.io/",
-  },
-  {
-    name: "Daniel Paleka",
-    affiliations: [1, 3],
-    href: "https://danielpaleka.com/",
-  },
-  {
-    name: "Alexander Havrilla",
-    affiliations: [1, 2],
-    href: "https://dahoas.github.io/",
-  },
-  {
-    name: "Pranav Tadepalli",
-    affiliations: [1, 2],
-    href: "https://pranav.cc/",
-  },
-  { name: "Paula Vidas", affiliations: [1], href: "#" },
-  {
-    name: "Alexander Kranias",
-    affiliations: [1, 2],
-    href: "https://alexkranias.com/index.html",
-  },
-  { name: "John J Nay", affiliations: [4, 5], href: "http://johnjnay.com/" },
-  {
-    name: "Kshitij Gupta",
-    affiliations: [1, 6],
-    href: "https://kshitijkg.github.io/",
-  },
-  {
-    name: "Aran Komatsuzaki",
-    affiliations: [1, 2],
-    href: "https://twitter.com/arankomatsuzaki",
-  },
-];
-
-const affiliations = [
-  "DuckAI",
-  "Georgia Tech",
-  "ETH Zürich",
-  "Nomos AI",
-  "Stanford University Center for Legal Informatics",
-  "MILA",
-];
-
 const Arb: React.FC = () => {
   const example_problems = ["/proof_1.png", "/proof_2.png"];
   const overview = [
@@ -91,26 +42,7 @@ const Arb: React.FC = () => {
         position="sticky"
         top={0}
         zIndex={1000}
-      >
-        <Box
-          flexBasis={{ base: "100%", md: "auto" }}
-          flexGrow={1}
-          textAlign={{ base: "center", md: "left" }}
-        >
-          <Link href="https://duckai.org">
-            <Image src="/twitter-card.png" alt="DuckAI Logo" maxW="150px" />
-          </Link>
-        </Box>
-        <Box flexBasis={{ base: "100%", md: "auto" }}>
-          <Flex align="center">
-            <Heading fontSize="2s" color="white" mr={2}>
-              Try out our interface!
-            </Heading>
-            <Link href="/home" title="Go to interface">
-              <Icon as={FaArrowCircleRight} w={6} h={6} color="white" />
-            </Link>
-          </Flex>
-        </Box>
+      >  
       </Flex>
 
       <Box as="section" bg="gray.100" py={10}>
@@ -119,27 +51,6 @@ const Arb: React.FC = () => {
             <Heading as="h1" size="xl">
               ARB: Advanced Reasoning Benchmark for Large Language Models
             </Heading>
-
-            <Text fontSize="lg" mt={4}>
-              {authors.map((author, index) => (
-                <React.Fragment key={author.name}>
-                  <Link href={author.href} color="teal.500">
-                    {author.name}
-                  </Link>
-                  <sup>{author.affiliations.join(",")}</sup>
-                  {index < authors.length - 1 && ", "}
-                </React.Fragment>
-              ))}
-            </Text>
-
-            <Text fontWeight="bold" fontSize="lg" mt={2}>
-              {affiliations.map((affiliation, index) => (
-                <React.Fragment key={affiliation}>
-                  <sup>{index + 1}</sup> {affiliation}
-                  {index < affiliations.length - 1 && ", "}
-                </React.Fragment>
-              ))}
-            </Text>
 
             <Flex mt={4} wrap="wrap" justify="center">
               <Link
@@ -395,64 +306,9 @@ const Arb: React.FC = () => {
             </Box>
           </Flex>
 
-          <br />
-          <br />
-
-          <Flex direction="column" align="center">
-            <Heading as="h2" size="lg">
-              BibTex
-            </Heading>
-            <Box as="pre" whiteSpace="pre-wrap">
-              <Code>
-                {`@misc{sawada2023arb,
-                title={ARB: Advanced Reasoning Benchmark for Large Language Models},
-                author={Tomohiro Sawada, Daniel Paleka, Alexander Havrilla, Pranav Tadepalli, Paula Vidas, Alexander Perikles Kranias, John J Nay, Kshitij Gupta, Aran Komatsuzaki},
-                year={2023},
-                eprint={TBD},
-                archivePrefix={arXiv},
-                primaryClass={cs.LG, cs.CL}
-              }`}
-              </Code>
-            </Box>
-          </Flex>
-
-          <br />
-          <br />
-
-          <Flex direction="column" align="center">
-            <Heading as="h2" size="lg">
-              Acknowledgements
-            </Heading>
-            <Text textAlign="justify" mt={4}>
-              We thank Jeffrey Deng for developing and documenting the API, and
-              building the project website. We would also like to thank Raunak
-              Chowdhuri for helpful comments, and Zhangir Azerbayev for useful
-              discussions early on in the project. TS is supported by NSF grant
-              1745583.
-            </Text>
-          </Flex>
+         
         </Container>
       </Box>
-
-      <Flex
-        as="footer"
-        align="center"
-        justify="center"
-        wrap="wrap"
-        padding={6}
-        bg="teal.500"
-      >
-        <Link
-          href="https://github.com/TheDuckAI"
-          color="white"
-          textDecoration="underline"
-          _hover={{ color: "white", textDecoration: "underline" }}
-        >
-          <Text fontWeight="bold" fontSize="md">
-            Copyright © 2023 DuckAI
-          </Text>
-        </Link>
-      </Flex>
     </Box>
   );
 };
