@@ -336,7 +336,6 @@ const Documentation: React.FC = () => {
           <Text fontWeight="bold" fontSize="md">
             Copyright © 2023 ARB Team
           </Text>
-        </Link>
       </Flex>
     </Box>
   );
