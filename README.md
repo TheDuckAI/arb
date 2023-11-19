@@ -21,6 +21,6 @@ ARB is a novel benchmark dataset composed of advanced reasoning problems designe
 
 Endpoint url: https://advanced-reasoning-benchmark.netlify.app/api/
 <br/>
-The documentation for the complete REST API of the ARB dataset is [here](https://advanced-reasoning-benchmark.netlify.app/api/).
+The documentation for the complete REST API of the ARB dataset is [here](https://advanced-reasoning-benchmark.netlify.app/docs).
 
 Copyright © 2023 [DuckAI](https://github.com/TheDuckAI)
